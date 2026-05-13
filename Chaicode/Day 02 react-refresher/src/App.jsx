@@ -1,17 +1,17 @@
-import H1 from "./H1";
+import { useState } from "react";
 
 function App() {
+
+    const [count, setCount] = useState(0)
     return (
-        <div>
-
-            {/* Single Value Props */}
-            <H1 title="Props Value" />
-
-            {/* Multi Value Props */}
-            <H1 title="Multi Valur Props" desc="multi value props description" />
-        </div>
-
-    );
+        <>
+            <h5>Counter</h5>
+            {/* use callback function to avoid inifite loop */}
+            <button onClick={() => setCount(count + 1)}>➕</button>
+            <h1>{count}</h1>
+            <button onClick={() => setCount(count - 1)}>➖</button>
+        </>
+    )
 }
 
 export default App;

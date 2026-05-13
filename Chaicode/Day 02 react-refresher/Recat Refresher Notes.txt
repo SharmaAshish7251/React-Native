@@ -1,0 +1,25 @@
+Dom
+How it works
+1. intial render --- react first creates virtual dom than render on real dom
+2. state Props Update --- when any change occurs react will create new virtual dom
+3. Difiing --- in this step recat compare old virtual dom  with new virtual dom
+4. Find Minimal changes --- it will identify the mninimal changes made 
+5. Update Real Dom -- after identfying changes it will update dom 
+
+
+
+What is Hook
+hooks is function or utility which have use as prefix.
+hooks allow user to add extra functionality in app, we cajn 
+also create our custom hooks.
+e.g.  :-   useEffect, useState, useMemo, useCallback, useRef, useContext
+
+Hooks Rules 
+--- hook should call in top level (before return).
+--- Only Call Hooks from React Functions
+--- Naming Conventions & Purity
+
+
+useState uses
+---- same as dart
+    ---  const [state, setState] = useState(initialValue)
