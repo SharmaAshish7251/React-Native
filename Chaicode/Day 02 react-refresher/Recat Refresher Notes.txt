@@ -15,11 +15,23 @@ also create our custom hooks.
 e.g.  :-   useEffect, useState, useMemo, useCallback, useRef, useContext
 
 Hooks Rules 
---- hook should call in top level (before return).
+--- hook should call in top level (before return, main function).
 --- Only Call Hooks from React Functions
 --- Naming Conventions & Purity
 
 
 useState uses
+useState renderes whole component inside it 
 ---- same as dart
     ---  const [state, setState] = useState(initialValue)
+
+
+
+
+useEffect 
+useEffect only render specific component, atleast one time it will run by default to limit run time we should pass vallue inside [1]
+required callback function and dependency array
+syntax :- useEffect(()=>{}, [])
+----- types of -- 1.without dependency array   2. with dependency array    3. empty dependency array
+1. without dependency arrary 
+---- useEffect(()=>{})

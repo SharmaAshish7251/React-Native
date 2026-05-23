@@ -1,15 +1,12 @@
-import { useState } from "react";
+import DarkModeToggle from "./DarkModeToggle";
 
 function App() {
 
-    const [count, setCount] = useState(0)
+
     return (
         <>
-            <h5>Counter</h5>
-            {/* use callback function to avoid inifite loop */}
-            <button onClick={() => setCount(count + 1)}>➕</button>
-            <h1>{count}</h1>
-            <button onClick={() => setCount(count - 1)}>➖</button>
+
+            <DarkModeToggle />
         </>
     )
 }
