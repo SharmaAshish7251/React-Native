@@ -1,3 +1,4 @@
+import ApiCalling from "./ApiCalling";
 import DarkModeToggle from "./DarkModeToggle";
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
     return (
         <>
 
-            <DarkModeToggle />
+            {/* <DarkModeToggle /> */}
+            <ApiCalling />
         </>
     )
 }

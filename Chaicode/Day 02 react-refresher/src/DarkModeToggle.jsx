@@ -67,7 +67,7 @@ function DarkModeToggle() {
 
         <div>
           <div>
-            <video src="">Video</video>
+            <video src="#">Video</video>
             <h4>My Video</h4>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
