@@ -35,3 +35,27 @@ syntax :- useEffect(()=>{}, [])
 ----- types of -- 1.without dependency array   2. with dependency array    3. empty dependency array
 1. without dependency arrary 
 ---- useEffect(()=>{})
+2. useEffect(()=>{}, [1])
+3. useEffect(()=>{}, [])
+
+
+Event Handling 
+In react we call synthentic event, react add layer its own layer called synthentic .,workds on all browsers and imporves perforemance
+Syntethic Event ---> Native Event  ----> Browser
+types
+mouse events
+keyboard events
+form events
+touch events
+ui events(onScroll, keypress,onResize)
+
+
+
+Form Handling 
+types 
+1. Controlled --- input is controlled by react  i) single source of truth ii) easy validation  iii) works well with react ecosystem
+2. Uncontrolled form ---   i) no react  state    ii) value accessed only when needed   iii)hard to validate   iv) no reactive : each  time key pressed component re-rendered     v) less control
+
+
+Task 
+form --- email, name, password  --- onsubmit show in one array
