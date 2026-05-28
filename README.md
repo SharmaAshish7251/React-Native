@@ -55,7 +55,7 @@ Build advanced React skills with practical patterns.
 
 ```bash
 cd Chaicode/"Day 02 react-refresher"
-npm install && npm run dev
+npm install && npm run dev 
 ```
 
 #### 🟣 Day 03: React Native - Mobile Development
