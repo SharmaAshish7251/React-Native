@@ -8,3 +8,5 @@ use Style attribute like html to style Components --- style= {{}}
 <ScrollView> --- <ScrollView> <Text> This Makes Screen Scrollable </Text> </ScrollView>
 <Button> ----     <Button title="Press Me" color="green" onPress={() => alert("Button Pressed")}  />
 <Switch> ----    <Switch zalue={isDarkMode} onValueChange={setIsDarkMode} trackColor={{ false: "white", true: "white" }} thumbColor={"grey"} />
+<FlatList> ---    <FlatList    />     works as ListViewbuilder like flutter. provide key using callback function,destructure data in renderItem atrribute data == source
+<KeyboardAvoidingView /> -- give padding for ios and height for Andriod
