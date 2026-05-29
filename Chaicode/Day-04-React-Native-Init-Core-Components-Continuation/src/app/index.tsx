@@ -1,19 +1,18 @@
-import { ScrollView, StyleSheet } from "react-native";
-import Assignment from "./Assignment";
+import { StyleSheet, View } from "react-native";
+import UseWindowDimensions from "./UseWindowDimensions";
+import ColorScheme from "./ColorScheme";
 
-const HomeScreen = () => {
+const index = () => {
   return (
-    <ScrollView
-      style={{
-        backgroundColor: "white",
-      }}
-    >
-      {/* <BasicComponents /> */}
-      <Assignment />
-    </ScrollView>
-  );   
+    <View style={{ flex: 1 }}>
+      {/* <Text>index</Text> */}
+      {/* <FlattendStyle /> */}
+      {/* <UseWindowDimensions /> */}
+      <ColorScheme />
+    </View>
+  );
 };
 
-export default HomeScreen;
+export default index;
 
 const styles = StyleSheet.create({});

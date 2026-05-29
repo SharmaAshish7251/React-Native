@@ -1,12 +1,80 @@
-Components
+Week 2 Mobile Development Cohort
 
-use Style attribute like html to style Components --- style= {{}}
+1. What is Mobile Development?
+2. What is Reat Native & Expo?
+3. Env set
+4. Project Struture
+5. Core Components and styling
 
-<Text> --- <Text> React Native Components  </Text>
-<Image> --- <Image source={{uri:"https://ashishsharma.in/uploads/profile.png"}}  alt="Image via Internet"  />   :   <Image source={require("@/assets/images/summer.jpg")}  resizeMode="cover" />   --- give view hight and width to take more control on image and ensure both height and width equals.
-<View>  --- <View> Chid Components Goes Here </View>
-<ScrollView> --- <ScrollView> <Text> This Makes Screen Scrollable </Text> </ScrollView>
-<Button> ----     <Button title="Press Me" color="green" onPress={() => alert("Button Pressed")}  />
-<Switch> ----    <Switch zalue={isDarkMode} onValueChange={setIsDarkMode} trackColor={{ false: "white", true: "white" }} thumbColor={"grey"} />
-<FlatList> ---    <FlatList    />     works as ListViewbuilder like flutter. provide key using callback function,destructure data in renderItem atrribute data == source
-<KeyboardAvoidingView /> -- give padding for ios and height for Andriod
+SafeAreaView
+apps top part which shows status bar or app name 
+attribute  -- edge(top, bottom, left and right)
+
+first create one function Unsafearea then call in index  --- to completely remove goto layout and make headerShown false
+
+<Stack
+      screenOptions={{
+        headerShown: false,   // it will disable default SafeAreaView
+      }}
+    />
+
+
+custom SafeAreaView 
+create function and wrap it with SafeAreaView, you can give any name to function.
+
+
+Custom Top Bar (SafeArea) with Hook  -- useSafeAreaInsets EXPO by default provides it  its asynchronous might dealy in changes
+Simply store it variable and use like usable, more flexible than SafeAreaView
+eg :
+const  insets  =  useSafeAreaInsets();
+
+console.log(insets)  --- to see default values
+return(
+<View>
+style={{
+flex : 1,
+paddingTop: insets.top,
+paddingBottom : insets.bottom,
+}}
+</view>
+)
+
+
+SafeAreaProvider
+less contorl but synchronous data
+
+
+
+
+Stylesheet for custom css
+always make stylesheet outside main function --if we keep inside main screen and other components re-render than stylesheet will also render
+methods or type -- create, compose , flatten
+
+return (
+    <View style={styles.card}>
+      <Text>index</Text>
+    
+    </View>
+  );
+
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: "black",
+
+});
+
+
+Flattened Style
+by this we can merge 2 or more styles 
+like : color, fontsize
+const flat = StyleSheet.flatten([stylesA.text, stylesB.text]);
+
+
+useWindowDimensions    ---- for responsiveness --- dp 
+--- height, width, fontscale, font
+Assign -- fontscale, font
+
+
+
+
+
