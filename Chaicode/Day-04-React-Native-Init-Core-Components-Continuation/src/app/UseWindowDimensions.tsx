@@ -9,9 +9,10 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const UseWindowDimensions = () => {
-  const { height, width } = useWindowDimensions();
+  const { height,width } = useWindowDimensions();
   const isTablet = width >= 768;
   const isLandscape = width > height;
+
 
   const locklandscape = async () => {
     await ScreenOrientation.lockAsync(

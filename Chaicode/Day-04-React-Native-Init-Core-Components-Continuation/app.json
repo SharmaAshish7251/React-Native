@@ -11,11 +11,11 @@
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.xnew"
     },
     "web": {
-      "output": "static",
-      "favicon": "./assets/Ashish-Sharma.png"
+      "output": "static"
     },
     "plugins": [
       "expo-router",
@@ -29,7 +29,8 @@
           }
         }
       ],
-      "expo-status-bar"
+      "expo-status-bar",
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true,

@@ -10,7 +10,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import Colors from "./Colors";
+import Colors from "../Colors";
 
 const Assignment = () => {
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
@@ -112,7 +112,7 @@ const Assignment = () => {
               paddingLeft: 9,
               paddingTop: 6,
               paddingBottom: 6,
-              backgroundColor: Colors.white ,
+              backgroundColor: Colors.white,
             }}
           >
             <Ionicons
@@ -156,14 +156,14 @@ const Assignment = () => {
               alignItems: "center",
               borderColor: isFocusedPass ? Colors.primary : "grey",
               borderWidth: isFocusedPass ? 2 : 1,
-              backgroundColor : Colors.white,
+              backgroundColor: Colors.white,
               borderRadius: 12,
               paddingLeft: 9,
               overflow: "hidden",
               marginTop: 3,
               paddingTop: 6,
               paddingBottom: 6,
-              width : "100%",
+              width: "100%",
             }}
           >
             <FontAwesome name="lock" size={20} color="black" />

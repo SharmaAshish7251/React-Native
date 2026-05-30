@@ -1,6 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import UseWindowDimensions from "./UseWindowDimensions";
 import ColorScheme from "./ColorScheme";
+import AssignFontScaleandScale from "./assignment/AssignFontScaleandScale";
 
 const index = () => {
   return (
@@ -8,7 +9,8 @@ const index = () => {
       {/* <Text>index</Text> */}
       {/* <FlattendStyle /> */}
       {/* <UseWindowDimensions /> */}
-      <ColorScheme />
+      {/* <ColorScheme /> */}
+      <AssignFontScaleandScale />
     </View>
   );
 };
