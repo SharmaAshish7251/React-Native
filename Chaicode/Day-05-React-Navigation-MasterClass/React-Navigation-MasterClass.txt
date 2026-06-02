@@ -1,0 +1,48 @@
+Week 3 Mobile Development Cohort || React Navigation Masterclass
+
+
+visit React Navigation and follow instructions(install packages)
+
+Static vs Dynamic Navigation
+Static --- Screens are declared in one config object (good for small apps static apps).
+Dynamic --- useful for large apps , routes screens dynamically.
+
+Types of Naviagtors
+1. Stack Navigator  2. Tabs Naviagtor    3. Drawer Navigator
+1. one upon another screen.
+2. bottom naviagtion elements -- 4 recommended.
+3. Side menu (Drawer).
+ 
+
+Register your router in App.tsx
+
+const MyTabs = createBottomTabNavigator({
+  screens: {
+    Home: HomeScreen,
+    Profile: ProfileScreen,
+  },
+});
+
+const Navigation = createStaticNavigation(MyTabs);
+
+export default function App() { ``
+  // return <Navigation />;
+  // return <DynamicTabsNavigator />
+  // return <StaticDrawer />
+  return <DynamicDrawer />
+}
+
+
+Stack recommended for small apps
+
+
+Static --- Mannual Defined routes
+Dynamic --- dynamically defined routes likes Profile/ashish
+
+
+Assignment
+Food Delivery App
+---  Onboarding screen --> Home (tabs) --> Hotel (List)  ---> Profile --- > Order Recevied
+
+Static Stack Navigator with Animation
+Instagram Clone 
