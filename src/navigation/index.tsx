@@ -10,9 +10,11 @@ import bell from '../assets/bell.png';
 import newspaper from '../assets/newspaper.png';
 import { Home } from './screens/Home';
 import { OnboardingScreen } from './screens/OnboardingScreen';
+import { Restaurant_Details } from './screens/Restaurant_Details';
+import {Product_Details} from './screens/Product_Details';
+import { Cart_Summary } from './screens/Cart_Summary';
+import { Order_Tracking } from './screens/Order_Tracking';
 import { Profile } from './screens/Profile';
-import { Settings } from './screens/Settings';
-import { Updates } from './screens/Updates';
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
@@ -32,8 +34,8 @@ const HomeTabs = createBottomTabNavigator({
         ),
       },
     },
-    Updates: {
-      screen: Updates,
+    Cart: {
+      screen: Cart_Summary,
       options: {
         tabBarIcon: ({ color, size }) => (
           <Image
@@ -52,7 +54,7 @@ const HomeTabs = createBottomTabNavigator({
 
 const RootStack = createNativeStackNavigator({
   screens: {
-    Onboarding: {
+    Cart: {
       screen: Profile,
       options: {
         title: 'Onboarding',
@@ -67,19 +69,13 @@ const RootStack = createNativeStackNavigator({
       },
     },
     Profile: {
-      screen: Profile,
-      linking: {
-        path: ':user(@[a-zA-Z0-9-_]+)',
-        parse: {
-          user: (value) => value.replace(/^@/, ''),
-        },
-        stringify: {
-          user: (value) => `@${value}`,
-        },
-      },
+      screen: Restaurant_Details,
+      options :{
+        
+       }
     },
-    Settings: {
-      screen: Settings,
+    Product_Details: {
+      screen: Product_Details,
       options: ({ navigation }) => ({
         presentation: 'modal',
         headerRight: () => (
