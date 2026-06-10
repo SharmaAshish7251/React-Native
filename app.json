@@ -23,12 +23,12 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-asset",
       [
         "expo-splash-screen",
         {
           "backgroundColor": "#ffffff",
-          "image": "./assets/splash-icon.png"
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200
         }
       ]
     ]

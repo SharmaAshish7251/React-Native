@@ -9,10 +9,10 @@ import { Image } from 'react-native';
 import bell from '../assets/bell.png';
 import newspaper from '../assets/newspaper.png';
 import { Home } from './screens/Home';
+import { OnboardingScreen } from './screens/OnboardingScreen';
 import { Profile } from './screens/Profile';
 import { Settings } from './screens/Settings';
 import { Updates } from './screens/Updates';
-import { NotFound } from './screens/NotFound';
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
@@ -52,6 +52,13 @@ const HomeTabs = createBottomTabNavigator({
 
 const RootStack = createNativeStackNavigator({
   screens: {
+    Onboarding: {
+      screen: Profile,
+      options: {
+        title: 'Onboarding',
+        headerShown: false,
+      },
+    },
     HomeTabs: {
       screen: HomeTabs,
       options: {
@@ -82,15 +89,15 @@ const RootStack = createNativeStackNavigator({
         ),
       }),
     },
-    NotFound: {
-      screen: NotFound,
-      options: {
-        title: '404',
-      },
-      linking: {
-        path: '*',
-      },
-    },
+    // NotFound: {
+    //   screen: NotFound,
+    //   options: {
+    //     title: '404',
+    //   },
+    //   linking: {
+    //     path: '*',
+    //   },
+    // },
   },
 });
 
