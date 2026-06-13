@@ -1,0 +1,92 @@
+Expo Router
+Expo router uses router navigation internally (file based routing)
+
+create all screens unders /app folder
+outside files treats as components
+case- sensitive rouing always keep file name and route name as same to avoid erro
+
+screen file name should be lowercase to avoid conflict
+component file name should Capatiliaze (Home not home)
+
+
+Nested Static File Routng
+index.ts is entry point 
+profile/index.ts == profile.tsx
+
+
+profile.tsx is itself file
+profile/index.ts can have more file
+
+
+Dynamic Routing
+a route that accept a variable value
+dynamic route always keep in seperate folder, folder and file both can be dynamic
+to make dynamic wrap file name with [] ==  [userid]
+use hook for dynamic routing --- useLocalSearchParams()
+
+to capture user id pass userId and file name [userId].tsx  must be same
+if we keep 2 dynamic routes at same directory it may conflict
+
+
+
+Nested Dynamic Routes
+[...slug].tsx
+
+
+_layout
+layout internally uses Stack
+stack by  default have topbar(header) and footer
+
+to add custom header(SafeArea) and footer use Slot
+slot dynamacailly change screen if you move to next screen and keep custom Safearea and footer
+we can also create custom _layout for group pages but root layout will share in all screens
+
+
+route group (auth)
+wrap folder name with () for group route -- only folder
+
+
+Stack Customization
+<Stack.Screen name="login" 
+        options={{
+          headerStyle : {
+            backgroundColor : "#f4b"
+          }
+        }}
+        />
+
+
+
+stack guard to protect unauthorize access
+<Stack.Protected guard={!isLoggedIn}>
+          {/* to hide header, we can also target group */}
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        </Stack.Protected>
+
+
+
+tabs
+3 types -- Js tabs, Native tabs and Custom tabs  *** SCREEN NAME SHOULD BE IN LOWERCASE	
+
+Js Tabs import tabs from expo router and return Tabs as component.
+if we add new screen inside folder it will auto create tab
+
+
+Native Tabs 
+less control and customization  not stable
+ sf for iOS icons
+md forAndriod icons
+
+
+Custom tabs
+full control
+state --- all available tabs ,current tabs
+desc -- screen options
+nav --- move between screens/tabs
+
+
+Drawer
+
+
+*********Assignment***********
+What is Expo Router  --- router and useRouter hook
