@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
+import BackendCalling from "./backendcalling";
 
 
 
@@ -20,16 +21,28 @@ export default function Index() {
     callApi('GET /api/users', '/api/users')
   }, []);
 
-
+  useEffect(() => {
+    async function pingBackend() {
+      const res = await fetch("http://localhost:3000/api/v1/hello-world")
+      const data = await res.json()
+      console.log(data)
+    }
+    pingBackend()
+  }, [])
 
 
   return (
+
     <View style={styles.container}>
+
+
+      <BackendCalling />
+
       <Button title="GET /api/users" onPress={() => callApi("GET /api/users", "/api/users")} />
       <Button title="POST /api/users" onPress={() => callApi("GET /api/users", "/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: "Test User2", email: "test2@example.com" }),
+        body: JSON.stringify({ name: "Test User6", email: "test6@example.com" }),
       })} />
       <Button title="GET /api/users/1"
         onPress={() => callApi("GET /api/users/3", "/api/users/3")}
@@ -38,6 +51,8 @@ export default function Index() {
         <Text>{output}</Text>
       </ScrollView>
     </View>
+
+
   );
 
 }
@@ -51,6 +66,6 @@ const styles = StyleSheet.create(
       gap: 8,
     },
 
-    output : {},
+    output: {},
   }
 );

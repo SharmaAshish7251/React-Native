@@ -65,5 +65,12 @@ http://localhost:8082/api/v1/hello-world
 Relative Url
 /api/v1/hello-world
 
+
+Why Localhost does not work on a physical device?
+change localhost with ip address
+http://localhost:3000/api/v1/hello-world
+http://192.168.1.36:3000/api/v1/hello-world
+
+
 *****************
 PUT And Delete Call Assignment
