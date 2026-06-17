@@ -1,0 +1,69 @@
+
+Expo Router
+FullStack mobile  framework ()
+
+edge network === nearest network or server
+
+
+What is an API?
+Application Programming Interface 
+
+API Types 
+-- Rest API (Represntational State Transfer)
+-- 
+
+Client -- Server --- Database
+
+
+Http methods
+POST,PUT, PATCH and DELETE comes in mutation
+mutaion -- mutation is an operation used to modify data on a server
+--- GET        ------> get data from api/server
+--- POST       ------> send data
+--- PUT        ------> update all
+--- PATCH      ------> update partial/single data (condition based) 
+--- DELETE     ------> delete data
+
+
+
+Expo API Routes  (serverless architecture or edge)  
+connection timeout 30-60s
+File naming convention  ----->    file-name+api.ts
+avoid same name function with same method 
+https://docs.expo.dev/router/web/api-routes/
+
+
+3rd Party API Calling make file inside api and write fetch query
+api/users+api.ts
+   const res = await fetch("https://api.freeapi.app/api/v1/public/randomusers?page=1&limit=10");
+        const data = await res.json();
+        console.log(data);
+        setData(data);
+
+***
+
+Avoid traditional MySQL/Postgres with long-lived connection 
+pools API routes can be serverless and connections won't persist
+between requests. Use HTTP-native or serverless-friendly drivers.
+***
+
+
+Databases
+Turso (Sqllite) -- single user or for small apps
+Neon
+Plantscale
+Supabase  uses deno rendering
+
+Error 
+*** URL_INVALID: The URL 'undefined' is not in a valid format ***
+move db.ts outside app don't keep inside /app directory
+
+
+Static Url
+http://localhost:8082/api/v1/hello-world
+
+Relative Url
+/api/v1/hello-world
+
+*****************
+PUT And Delete Call Assignment
