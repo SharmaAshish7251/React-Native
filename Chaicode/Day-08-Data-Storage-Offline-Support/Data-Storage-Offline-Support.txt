@@ -1,0 +1,131 @@
+Data Storage & Offline Support
+install app with expo this will install all packages accoording to sdk version
+
+
+asyncStorage
+Secure Storage (Secure data handling)
+Sqlite (Local database)
+Filesystem -- file handling
+
+async storage 
+https://react-native-async-storage.github.io/2.0/Usage/
+is  a local storage system for React Native and Expo Application
+stores data in pair |  key   -> value   
+locally stores data
+1. app close 2. app reload 3. device restart
+
+uses
+1. user preferences 
+2. Login Status
+3. onboarding screen
+4. Dark & Mode
+5. cached data
+
+all data will stored in string
+to save use setItem method  
+to fetch data use getItem method
+to delete data use removeItem method
+to clear all data use clear method
+to get all keys use getAllKeys method
+to save multiple fields use multiSet method  ---- pass data in array
+to get multiple fields use multiGet method  ---- pass data in array
+
+
+pro and cons
+pro :-
+--- Easy to use
+--- Object Support
+--- Simple API
+--- Cross Platform
+--- Persistent Storage
+
+
+cons :-
+--- No Encryption
+--- Onlt stores strings--- object must be converted to string	
+--- Not good for large data
+--- Slower than  Memory storage
+--- No Query System ---- can't do   1.filter data	2.search efficiently 	3.run SQL queries   it is not a database
+
+
+Secure Storage
+is a secure storage system provided by expo for storing sensitive data safely inside mobile application.
+https://docs.expo.dev/versions/v55.0.0/sdk/securestore/
+**** if db connection open using sync method use Sync in all query function to avoid conflict ****
+
+
+1. iOS ---> Keychain  (internally)
+2, Android ---> Keystore (internally)
+expo by default handles it, not available for web
+
+uses for
+1. jwt token
+2. access tokens
+3. refresh tokens
+4. api secrets
+5. sensitive user data  
+
+
+What is keychain and keystore
+iOS Keychain ---- apple's internal secure storage system used in Iphone and Ipads
+Android ---- Android's secure storage system for storing cryptographic keys and sensitive information (data)
+The keychain data doesn't get deleted with the app uninstall. Be careful with that.
+
+
+secure storage pros and cons
+pros :--
+--- for token
+--- passwords
+--- secrets
+
+
+cons : -
+--- Slower than AsyncStorage (bcoz of encryption)
+--- Not good for large data (chat app, offline databases, huge arrays,large json objects)
+--- Limited Storage Size
+--- no web support
+--- Expo SecureStore is 2048 bytes (2 KiB) per key
+--- only stores string data
+
+
+SqLite
+is lightweight local database used for storing structured data inside mobile applications
+http://docs.expo.dev/versions/v55.0.0/sdk/sqlite/
+
+use cases:- 
+1. large structured data
+2. offline first app
+3. searching / filter sorting
+4. Relational data
+
+
+Important SQLite Methods
+ - openDatabaseSync()  --- create or open database
+ - openDatabaseAsync()  ---- create or open database
+ - exeSync() --- to run queries  (create table, drop table, schema queries)
+ - exeAsync() --- to run queries  (create table, drop table, schema queries)
+ - runSync() --- run queries with parameters  (insert, update, delete)
+ - runAsync() --- run queries with parameters  (insert, update, delete)
+   
+   Why question mark   
+   VALUES(?)   ---- placeholder/ parameterized query    --- to prevent sql injection and unsafe queries
+
+ - getAllSync()  --- return all rows
+ - getAllAsync()  --- return all rows
+ - getFirstSync() --- return first row only
+ - getFirstAsync() --- return first row only
+ - prepareSync()  --- create reusable sql statements/ queries
+	const statement = db.prepareSync(
+	  "INSERT INTO users (name) VALUES (?) "
+	);
+	statement.executeSync(["Anurag"]);
+
+ - prepareAsync()  --- create reusable sql statements/ queries
+	const statement = db.prepareAsync(
+	  "INSERT INTO users (name) VALUES (?) "
+	);
+	statement.executeAsync(["Anurag"]); 
+
+--- explore more
+https://docs.expo.dev/versions/v55.0.0/sdk/sqlite/
+

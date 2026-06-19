@@ -1,0 +1,36 @@
+Expo File System
+is a module provided by Expo that allows us to interact with
+the device's local file system.
+
+
+uses  :-
+1. createfile
+2. readfile
+3. write file
+4. copy/move/ delete files
+5. upload files
+6. download
+7. folders manage
+
+
+
+core concepts
+1. File URI -- every file has a path called uri
+		file>///data/user/0/app/files/demo.txt
+2. Sandbox --- apps cannot access all device files directly.
+		They work inside a protected area called sandbox.
+3. Directories --- provides two directories  1. FileSystem.documentDirectory   2.cacheDirectory (Temporary Storage)
+	
+   cacheDirectory -- Temporary Storage	 (Paths.cache)
+   documentDirectory  ---permanent app storage  (Paths.document)
+
+
+
+***************************
+upload file assignment
+Dev Snippet AI-PRD
+-- save reusable code snippet
+-- manage files/ screenshots
+-- work offline
+-- export/ share snippet
+-- organize developer resources
