@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "m",
-    "slug": "m",
+    "name": "Dev-Snippets-AI–Offline",
+    "slug": "Dev-Snippets-AI–Offline",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "m",
+    "scheme": "Dev-Snippets-AI–Offline",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"
@@ -34,7 +34,9 @@
             "imageWidth": 76
           }
         }
-      ]
+      ],
+      "expo-font",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
