@@ -1,0 +1,69 @@
+####
+
+Expo
+a library that provides access to a device's accelerometer,
+barometer, motion, gyroscope, light, magnentometer and pedometer. 
+
+
+1. Accelerometer
+2. Gyroscope
+3. Light Sensor
+4. Barometer
+5. Magnentometer
+6. Pedometer
+7. Device motion
+
+
+
+What is a sensor?
+A sensor is a harware component inside a device that detects and
+measures physical properties from the real world.
+
+
+Types of Sensors
+1. Movement
+2. Rotation
+3. Light
+4. Pressure
+5. Steps Count
+6. Device Orientation (landscape or portrait)
+7. Magnetic Fields
+
+
+
+Without sensors 
+1. Touch Input
+2. Keyboard Input
+3. Network 
+
+
+
+What is Expo Sensor?
+Mobile ---> Epxo Sensors   <--- React Native
+
+What is an Accelerometer?
+An accelerometer measures acceleration occurring along three dimensions.
+
+change in velocity over time
+use case
+
+1. starting walk
+2. stopping suddenly
+3. shaking a phone
+4. tilting a phone
+5. dropping a phone
+
+
+X Axis ------> Horizontal movement
+Y Axis ------> Vertical movement
+Z Axis ------> Represent dept movement
+
+Understanding Gravity and G-Force
+1g = Earth's gravity(9.8g)
+
+before using any sensor
+1. is available
+2. subscribe to updates
+
+to make custom hook add use prefix in file name
+
