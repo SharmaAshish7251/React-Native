@@ -10,7 +10,7 @@ export function useAccelerometer() {
     const [z, setZ] = useState(0);
 
     useEffect(() => {
-        let subscription;
+        let subscription: { remove: () => void } | undefined;
         (async () => {
             //  this will check sensor availablity
             const isAvailable = await Accelerometer.isAvailableAsync();
@@ -19,9 +19,17 @@ export function useAccelerometer() {
 
             // to get sensor triggered
             Accelerometer.setUpdateInterval(100);
-        })()
 
+
+            // to subscribe 
+            subscription = Accelerometer.addListener((data) => {
+                setX(data.x);
+                setY(data.y);
+                setZ(data.z)
+            })
+        })()
+        return () => subscription?.remove();
 
     }, [])
-    return {};
+    return { available, x, y, z };
 }

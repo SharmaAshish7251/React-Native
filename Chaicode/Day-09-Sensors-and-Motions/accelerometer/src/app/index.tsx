@@ -1,9 +1,16 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, StatusBar } from "react-native";
+import { useAccelerometer } from "@/hooks/use-accelerometer";
+import { TiltGame } from "@/components/tilt-game";
 
 export default function Index() {
+
+  // const { available, x, y, z } = useAccelerometer();
+  // console.log(available, x, y, z);
+
   return (
     <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
+      <StatusBar barStyle={"light-content"}/>
+      <TiltGame/>
     </View>
   );
 }
@@ -15,3 +22,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+

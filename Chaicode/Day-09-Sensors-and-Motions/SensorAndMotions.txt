@@ -56,7 +56,7 @@ use case
 
 X Axis ------> Horizontal movement
 Y Axis ------> Vertical movement
-Z Axis ------> Represent dept movement
+Z Axis ------> Represent dept movement (between 0 - 1 value)
 
 Understanding Gravity and G-Force
 1g = Earth's gravity(9.8g)
