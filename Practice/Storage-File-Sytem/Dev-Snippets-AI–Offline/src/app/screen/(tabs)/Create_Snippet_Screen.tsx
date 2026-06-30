@@ -1,6 +1,6 @@
-import { FontAwesome, FontAwesome5, FontAwesome6, Ionicons, MaterialIcons } from '@expo/vector-icons';
-import React, { useRef, useState } from 'react';
-import { Button, FlatList, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import { FontAwesome6, MaterialIcons } from '@expo/vector-icons';
+import React, { useCallback, useState } from 'react';
+import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import DevColors from '../utils/DevColors';
 import DevText from '../utils/DevText';
 import DevHeading from '../utils/DevTitle';
@@ -8,10 +8,20 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import DevSnippets from '../utils/DevSnippets';
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
+
+
 const Create_Snippet_Screen = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [code, setCode] = useState("");
+  const handleCodeChange = useCallback((text: string) => setCode(text), []);
+  const lineCount = code === "" ? 1 : code.split("\n").length;
+  console.log(lineCount);
+  const lineNumbers = Array.from(
+    { length: code === "" ? 1 : code.split("\n").length },
+    (_, i) => i + 1
+  );
+
   // set to store unique values
   const [items, setItems] = useState(
     DevSnippets.filter(
@@ -144,15 +154,38 @@ const Create_Snippet_Screen = () => {
       <View style={styles.snippetMainContainer}>
 
         {/* Top Quick Info */}
-        <View style={styles.snippetContainer}>
-          <View style={styles.centerSnippetContainer}>
-            <DevText numberOfLines={1}>TAGS & KEYWORDS</DevText>
+        <View style={styles.snippetContainerHead}>
+          <View style={styles.snippetContainerHeadLeft}>
+            <FontAwesome6 style={styles.snippetBottomButtonLeftIcon0} name="circle-notch" />
+            <FontAwesome6 style={styles.snippetBottomButtonLeftIcon1} name="circle-notch" />
+            <FontAwesome6 style={styles.snippetBottomButtonLeftIcon2} name="circle-notch" />
+          </View>
+          <View style={styles.snippetContainerCenter}>
+            <DevText style={styles.snippetContainerCenterText} numberOfLines={1}>index.ts - main</DevText>
+          </View>
+          <View style={styles.snippetContainerHeadRight}>
+            <FontAwesome6 style={styles.snippetContainerHeadRightIcon} name="clipboard" />
+            <FontAwesome6 style={styles.snippetContainerHeadRightIcon} name="expand" />
           </View>
         </View>
 
-        {/* Tags */}
-        <View style={styles.snippetMainContainertags}>
-          <TextInput
+        {/* center */}
+
+
+        <View style={styles.snippetMainContainerCode}>
+          <View style={styles.snippetMainContainerCodeLeft}>
+            {lineNumbers.map(line => (
+              <DevText key={line} style={styles.lineNumber}>
+                {line}
+              </DevText>
+            ))}
+
+          </View>
+          <View style={styles.snippetMainContainerCodeRight}>
+            <TextInput
+            numberOfLines={999}
+            cursorColor={DevColors.onSucess}
+            scrollEnabled={true}
             multiline
             value={code}
             onChangeText={setCode}
@@ -163,17 +196,15 @@ const Create_Snippet_Screen = () => {
             autoCapitalize="none"
             autoCorrect={false}
             spellCheck={false}
+            selectionColor={DevColors.primary}
           />
+          </View>
+
+
         </View>
 
-        {/* Show Code */}
-        <View style={styles.showSnippetMainDropdown}>
-          <TextInput placeholderTextColor={DevColors.outlineVariant} style={styles.snippetTitle}
-            placeholder='Add tag...' />
-        </View>
+
       </View>
-
-
 
 
       <View style={styles.snippetMainContainer}>
@@ -287,7 +318,16 @@ const styles = StyleSheet.create({
     width: "100%",
     overflow: 'hidden',
   },
-  codeInput: {},
+  codeInput: {
+    flex: 1,
+    height: "100%",
+    color: DevColors.onSurface,
+    minHeight: 220,
+    textAlignVertical: "top",
+    lineHeight: 20,
+    includeFontPadding: false,
+    marginTop:"-3%",
+  },
 
   tagChip: {
     flexDirection: "row",
@@ -346,6 +386,7 @@ const styles = StyleSheet.create({
     marginRight: "3%",
   },
 
+
   snippetBottomButtonLeft: {
     flexDirection: "row",
     alignItems: "center",
@@ -399,6 +440,7 @@ const styles = StyleSheet.create({
     fontWeight: 800,
     color: DevColors.outline,
     marginRight: "3%",
+
   },
 
   snippetTitle: {
@@ -411,12 +453,6 @@ const styles = StyleSheet.create({
     color: DevColors.outlineVariant,
   },
 
-  snippetTitleIcon: {
-    color: DevColors.outline,
-  },
-  snippetLineNo: {
-    color: DevColors.outlineVariant,
-  },
   snippetBottomContainer: {
     flexDirection: "row",
     width: "100%",
@@ -424,46 +460,76 @@ const styles = StyleSheet.create({
     marginTop: "3%",
 
   },
-  snippetBottomLeft: {
-    flexDirection: "row",
-    width: "90%",
 
+  snippetContainerHead: {
+    flexDirection: "row",
+    // marginLeft:"-3%",
+    // marginTop:"-3%",
+    // marginBottom:"3%",
+    // padding: "3%",
+    width:"100%",
+    backgroundColor: DevColors.surfaceContainerHigh,
+    borderRadius:3,
+    // overflow:"hidden",
   },
-  snippetBottomtags: {
-    borderWidth: 1,
-    borderColor: DevColors.onSucess + "40",
-    textTransform: "uppercase",
-    padding: "3%",
-    fontSize: 11,
-    fontWeight: "600",
-    marginRight: "3%",
-    paddingTop: "1%",
-    paddingBottom: "1%",
-    paddingLeft: "2%",
-    paddingRight: "2%",
-    borderRadius: 3,
+  snippetContainerHeadLeft: {
+    flexDirection: 'row',
+    width: "20%",
+    gap: 6,
+    padding:"3%",
   },
-  snippetBottomRight: {
-    width: "10%",
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-    marginRight: 34,
-  },
-  snippetBottomRightIcon: {
+  snippetBottomButtonLeftIcon0: {
+    color: DevColors.tertiaryContainer,
     fontSize: 15,
   },
-  topFilter: {
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: DevColors.outlineVariant,
-    marginRight: 10,
-    // borderColor: DevColors.onSucess + "40",
+  snippetBottomButtonLeftIcon1: {
+    color: DevColors.tertiaryFixedDim,
+    fontSize: 15,
   },
-  topFilterText: {
-    color: DevColors.onPrimaryContainer,
-
+  snippetBottomButtonLeftIcon2: {
+    color: DevColors.primaryContainer,
+    fontSize: 15,
   },
+  snippetContainerCenter: {
+    width: "60%",
+    padding:"3%",
+    
+  },
+  snippetContainerCenterText: {
+    textAlign: "center",
+  },
+  snippetContainerHeadRight: {
+    // backgroundColor: DevColors.surfaceContainerHigh,
+    flexDirection: 'row',
+    justifyContent: "space-between",
+    width: "20%",
+    padding:"3%",
+    // gap: 9,
+  },
+  snippetContainerHeadRightIcon: {
+    color: DevColors.inverseSurface,
+    fontSize: 15,
+  },
+  snippetMainContainerCode: {
+    flexDirection: "row",
+    overflow: 'hidden',
+    flex: 1,
+    textAlignVertical: "top",
+  },
+  snippetMainContainerCodeLeft: {
+    width: "10%",
+    backgroundColor: DevColors.surfaceContainerLow,
+  },
+  lineNumber: {
+    fontSize: 15,
+    color: DevColors.outlineVariant,
+    textAlign: "center",
+    borderRightWidth: 1,
+    borderRightColor: DevColors.outlineVariant,
+  },
+  snippetMainContainerCodeRight:{
+    width:"90%",
+    paddingLeft:"3%",
+  }, 
 })
 
