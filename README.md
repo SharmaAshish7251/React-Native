@@ -31,8 +31,7 @@ Welcome to the **React Native Learning Repository**! This collection contains st
 
 ## 🗂️ Projects
 
-### 📁 **Chaicode/**
-The main learning project with three progressive phases:
+### 📁 **Chaicode/** — Main Learning Curriculum
 
 #### 🔵 Day 01: React Refresher - Fundamentals
 Start here to refresh your React knowledge or learn from scratch.
@@ -55,12 +54,12 @@ Build advanced React skills with practical patterns.
 
 ```bash
 cd Chaicode/"Day 02 react-refresher"
-npm install && npm run dev 
+npm install && npm run dev
 ```
 
-#### 🟣 Day 03: React Native - Mobile Development
+#### 🟣 Day 03: React Native - Core Components
 Transition to mobile development with React Native and Expo.
-- Core mobile components
+- Core mobile components (View, Text, Image, ScrollView)
 - Navigation with Expo Router
 - Mobile-specific patterns
 - TypeScript for type safety
@@ -70,6 +69,94 @@ cd Chaicode/"Day-03-React-Native-Init-Core-Components"
 npm install && npx expo start
 ```
 
+#### 🟡 Day 04: React Native - Core Components Continuation
+Deepen your understanding of React Native components.
+- Advanced component patterns
+- Styling and layout
+- Component lifecycle
+
+```bash
+cd Chaicode/"Day-04-React-Native-Init-Core-Components-Continuation"
+npm install && npx expo start
+```
+
+#### 🟠 Day 05: React Navigation MasterClass
+Master navigation patterns in React Native.
+- Stack Navigator
+- Tab Navigator
+- Drawer Navigator
+- Static & dynamic routing
+
+```bash
+cd Chaicode/"Day-05-React-Navigation-MasterClass"
+npm install && npx expo start
+```
+
+#### 🔴 Day 06: Expo Router 101
+File-based routing with Expo Router.
+- File-based navigation
+- Auth flows `(auth)/`
+- Tab, Drawer, and Custom tabs
+- Dynamic routes (user, profile, username)
+
+```bash
+cd Chaicode/"Day-06-React-Expo-Router-101"
+npm install && npx expo start
+```
+
+#### 🟤 Day 07: Networking & Backend Integration
+Connect your app to a real backend.
+- REST API integration
+- Express.js backend server
+- Environment variables (`.env`)
+- TypeScript types for API responses
+
+```bash
+# Start the backend
+cd Chaicode/"Day-07-Networking-Backend-Integration"/backend
+npm install && node index.js
+
+# Start the mobile app
+cd Chaicode/"Day-07-Networking-Backend-Integration"
+npm install && npx expo start
+```
+
+#### ⚫ Day 08: Data Storage & Offline Support
+Persist data and support offline usage.
+- AsyncStorage
+- Local file system access
+- Offline-first patterns
+
+```bash
+cd Chaicode/"Day-08-Data-Storage-Offline-Support"
+npm install && npx expo start
+```
+
+#### 🌟 Day 09: Sensors & Motions
+Access native device sensors.
+- Accelerometer
+- Gyroscope
+- Light Sensor
+
+```bash
+# Each sensor is its own Expo project:
+cd Chaicode/"Day-09-Sensors-and-Motions"/accelerometer
+npm install && npx expo start
+```
+
+---
+
+### 📁 **Practice/** — Assignments & Side Projects
+
+#### 🏋️ Day-05-Assignment
+Three navigation practice apps:
+- **Food-Delivery-App** — Full food delivery UI with navigation
+- **Instagram_Clone** — Instagram UI clone (design notes)
+- **Notes-App-UI-Assignment** — Notes app with CRUD UI
+
+#### 💾 Storage-File-System
+- **Dev-Snippets-AI–Offline** — Offline-capable AI code snippets app using file system storage
+
 ---
 
 ## 🎯 Learning Path
@@ -78,21 +165,51 @@ npm install && npx expo start
 START HERE
     ↓
 [Day 01] React Basics
-    • Components
-    • JSX & Props
-    • Simple state
+    • Components & JSX
+    • Props & State
     ↓
 [Day 02] React Advanced
     • Hooks (useState, useEffect)
     • Forms & Validation
     • API Calls
-    • Event Handling
     ↓
-[Day 03] React Native
+[Day 03] React Native Core
     • Mobile Components
-    • Navigation
-    • Native Features
-    • Production Ready Apps
+    • Expo Setup
+    • TypeScript
+    ↓
+[Day 04] Components Deep Dive
+    • Advanced Layouts
+    • Styling Patterns
+    ↓
+[Day 05] Navigation
+    • Stack / Tab / Drawer
+    • React Navigation
+    ↓
+[Day 06] Expo Router
+    • File-based Routing
+    • Auth Flows
+    • Dynamic Routes
+    ↓
+[Day 07] Networking
+    • REST APIs
+    • Express Backend
+    • TypeScript Types
+    ↓
+[Day 08] Data Storage
+    • AsyncStorage
+    • File System
+    • Offline Support
+    ↓
+[Day 09] Sensors & Motions
+    • Accelerometer
+    • Gyroscope
+    • Light Sensor
+    ↓
+[Practice] Build Real Apps
+    • Food Delivery App
+    • Notes App
+    • Offline AI Snippets
 ```
 
 ---
@@ -172,23 +289,134 @@ npx expo prebuild # Prebuild native code
 ## 📖 Directory Structure
 
 ```
-React Native/
-├── 📁 Chaicode/                           # Main learning project
-│   ├── 📁 Day 01 react-refresher/
+React-Native/
+├── 📁 Chaicode/                                          # Main learning projects
+│   │
+│   ├── 📁 Day 01 react-refresher/                        # React Basics (Vite + JSX)
+│   │   ├── src/
+│   │   │   ├── App.jsx
+│   │   │   ├── H1.jsx
+│   │   │   └── main.jsx
+│   │   ├── public/
+│   │   ├── index.html
+│   │   └── package.json
+│   │
+│   ├── 📁 Day 02 react-refresher/                        # React Advanced (Hooks, Forms, API)
 │   │   ├── src/
 │   │   ├── public/
+│   │   ├── Recat Refresher Notes.txt
 │   │   └── package.json
-│   ├── 📁 Day 02 react-refresher/
+│   │
+│   ├── 📁 Day-03-React-Native-Init-Core-Components/      # RN Core Components & Expo
 │   │   ├── src/
-│   │   ├── public/
+│   │   │   └── app/
+│   │   │       ├── _layout.tsx
+│   │   │       ├── index.tsx
+│   │   │       ├── Basic_components.tsx
+│   │   │       ├── Colors.tsx
+│   │   │       └── assignments/
+│   │   ├── assets/
+│   │   ├── app.json
 │   │   └── package.json
-│   ├── 📁 Day-03-React-Native-Init-Core-Components/
+│   │
+│   ├── 📁 Day-04-React-Native-Init-Core-Components-Continuation/   # RN Components Cont.
 │   │   ├── src/
-│   │   ├── app/
+│   │   │   └── app/
+│   │   ├── assets/
+│   │   ├── app.json
 │   │   └── package.json
-│   └── README.md                          # Detailed Chaicode guide
+│   │
+│   ├── 📁 Day-05-React-Navigation-MasterClass/           # React Navigation
+│   │   ├── src/
+│   │   │   └── screens/
+│   │   ├── StaticRouter.tsx
+│   │   ├── React-Navigation-MasterClass.txt
+│   │   └── package.json
+│   │
+│   ├── 📁 Day-06-React-Expo-Router-101/                  # Expo Router & File-based Routing
+│   │   ├── src/
+│   │   │   ├── app/
+│   │   │   │   ├── _layout.tsx
+│   │   │   │   ├── index.tsx
+│   │   │   │   ├── about.tsx
+│   │   │   │   ├── (auth)/
+│   │   │   │   ├── (tabs)/
+│   │   │   │   ├── (drawer)/
+│   │   │   │   ├── (customtabs)/
+│   │   │   │   ├── (nativetabs)/
+│   │   │   │   ├── profile/
+│   │   │   │   ├── user/
+│   │   │   │   └── username/
+│   │   │   └── components/
+│   │   ├── assets/
+│   │   ├── React Expo Router.txt
+│   │   ├── app.json
+│   │   └── package.json
+│   │
+│   ├── 📁 Day-07-Networking-Backend-Integration/         # API & Backend Integration
+│   │   ├── src/
+│   │   │   ├── App.tsx
+│   │   │   ├── app/
+│   │   │   │   ├── _layout.tsx
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── api/
+│   │   │   ├── assets/
+│   │   │   ├── lib/
+│   │   │   └── types.d.ts
+│   │   ├── backend/                                      # Express.js backend server
+│   │   │   ├── index.js
+│   │   │   └── package.json
+│   │   ├── .env
+│   │   ├── Networking & Backend Integration.txt
+│   │   ├── app.json
+│   │   └── package.json
+│   │
+│   ├── 📁 Day-08-Data-Storage-Offline-Support/           # AsyncStorage & Offline
+│   │   ├── src/
+│   │   │   └── app/
+│   │   ├── assets/
+│   │   ├── Data-Storage-Offline-Support.txt
+│   │   ├── File System.txt
+│   │   ├── app.json
+│   │   └── package.json
+│   │
+│   └── 📁 Day-09-Sensors-and-Motions/                   # Device Sensors
+│       ├── accelerometer/                                # Accelerometer project
+│       │   ├── src/
+│       │   ├── assets/
+│       │   ├── SensorAndMotionsAccelerometer.txt
+│       │   └── package.json
+│       ├── gyroscope/                                    # Gyroscope project
+│       │   ├── src/
+│       │   ├── assets/
+│       │   ├── SensorAndMotionsGyroscope.txt
+│       │   └── package.json
+│       └── light-sensor/                                 # Light Sensor project
+│           ├── src/
+│           ├── assets/
+│           ├── SensorAndMotionsLightSensor.txt
+│           └── package.json
 │
-└── README.md                              # This file
+├── 📁 Practice/                                          # Assignments & Side Projects
+│   ├── 📁 Day-05-Assignment/                             # Navigation Practice Apps
+│   │   ├── 📁 Food-Delivery-App/                         # Food Delivery UI clone
+│   │   │   ├── src/
+│   │   │   ├── assets/
+│   │   │   └── package.json
+│   │   ├── 📁 Instagram_Clone/                           # Instagram Clone (notes)
+│   │   │   └── Instagram Clone.txt
+│   │   └── 📁 Notes-App-UI-Assignment/                   # Notes App UI
+│   │       ├── src/
+│   │       ├── assets/
+│   │       └── package.json
+│   │
+│   └── 📁 Storage-File-Sytem/                            # File System Practice
+│       └── 📁 Dev-Snippets-AI–Offline/                   # Offline AI Snippets App
+│           ├── src/
+│           ├── assets/
+│           └── package.json
+│
+└── README.md                                             # This file
 ```
 
 ---
@@ -301,7 +529,7 @@ cd Chaicode/"Day-03-React-Native-Init-Core-Components" && npm install && npx exp
 
 ---
 
-*Last Updated: May 2026*
+*Last Updated: July 2026*
 *Repository: React-Native Learning Path*
 
 </div>
