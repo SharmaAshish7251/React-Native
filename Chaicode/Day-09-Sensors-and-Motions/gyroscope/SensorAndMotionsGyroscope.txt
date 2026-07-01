@@ -1,0 +1,35 @@
+####
+
+GyroScope
+
+1. Angular Velocity
+2. Rate of rotation
+
+
+uses
+1. First person game
+2. AR application
+3. VR headsets
+4. Camera Stabilization
+5. Motion controlled experiences
+6. Flight simulators
+
+measurement
+radians per second (rad/s)
+2 PI radians = 360^deg
+pi/2 =90*
+PI = 180*
+
+
+
+fps basics
+16ms --- 60fps
+FPS = 1000/16 = 62.5   (60fps)
+1000/33 --- 30fps
+100ms --- 1-fps
+1000ms --- 1fps
+
+
+
+assignment --- sensor fusion
+tap -- screenshot sensor -- try
