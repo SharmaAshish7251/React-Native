@@ -1,0 +1,17 @@
+####
+
+Light Sensor
+
+Illuminance    --- lux.lx (measurement unit) low to height
+
+
+moonlight ----> 0.1 lx
+Dark room  -----> 5
+
+
+Bright sun 1,000,000 lx	`
+
+
+
+
+
