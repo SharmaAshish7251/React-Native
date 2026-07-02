@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
     textAlignVertical: "top",
     lineHeight: 20,
     includeFontPadding: false,
-    marginTop:"-3%",
+    marginTop:"03%",
   },
 
   tagChip: {
@@ -414,7 +414,7 @@ const styles = StyleSheet.create({
   },
   snippetBottomButtonTextLeft: {
     color: DevColors.onSurfaceVariant,
-    marginRight: 9,
+    marginRight: 0,
     fontSize: 15,
 
   },
@@ -463,10 +463,6 @@ const styles = StyleSheet.create({
 
   snippetContainerHead: {
     flexDirection: "row",
-    // marginLeft:"-3%",
-    // marginTop:"-3%",
-    // marginBottom:"3%",
-    // padding: "3%",
     width:"100%",
     backgroundColor: DevColors.surfaceContainerHigh,
     borderRadius:3,
@@ -519,6 +515,7 @@ const styles = StyleSheet.create({
   snippetMainContainerCodeLeft: {
     width: "10%",
     backgroundColor: DevColors.surfaceContainerLow,
+    marginTop:"5%",
   },
   lineNumber: {
     fontSize: 15,

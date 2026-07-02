@@ -1,6 +1,6 @@
 import { Redirect } from "expo-router";
 
 export default function Index() {
-  return <Redirect href="/screen/Create_Snippet_Screen" />;
+  return <Redirect href="/screen/Snippet_Details_Screen" />;
 }
 

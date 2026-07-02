@@ -1,5 +1,6 @@
 const DevColors = {
   inverseSurface: "#e2e2e8",
+  onContainerinverse :"#1A1D23",
   primaryContainer: "#00ff94",
   secondary: "#adc6ff",
   onSecondaryFixedVariant: "#004395",
