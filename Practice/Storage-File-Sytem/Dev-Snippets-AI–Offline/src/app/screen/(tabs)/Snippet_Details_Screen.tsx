@@ -1,7 +1,6 @@
-import { FontAwesome6, MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome6 } from '@expo/vector-icons';
 import React, { useCallback, useState } from 'react';
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import DevColors from '../utils/DevColors';
 import DevSnippets from '../utils/DevSnippets';

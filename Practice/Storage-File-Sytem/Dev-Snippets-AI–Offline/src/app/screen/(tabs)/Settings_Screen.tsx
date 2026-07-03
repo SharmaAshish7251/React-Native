@@ -1,22 +1,27 @@
 import { FontAwesome6 } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import DevColors from '../utils/DevColors';
 import DevText from '../utils/DevText';
 import DevHeading from '../utils/DevTitle';
-import DropDownPicker from 'react-native-dropdown-picker';
+import Constants from "expo-constants";
 
 
-
-
+const ProgressBar = ({ progress }: { progress: number }) => (
+  <View style={styles.progressBarContainer}>
+    <View style={[styles.progressBarFill, { width: `${Math.min(Math.max(progress, 0), 1) * 100}%` }]} />
+  </View>
+);
 
 const Settings_Screen = () => {
-  const [open, setOpen] = useState(false);
+  const version = Constants.expoConfig?.version;
   const [value, setValue] = useState(null);
   const [theme, setTheme] = useState("dark");
-  const [openmodel, setOpenmodel] = useState(false);
-  const [valuemodel, setValuemodel] = useState(null);
+  const [valuemodel, setValuemodel] = useState(0);
+  const [syntaxOpen, setSyntaxOpen] = useState(false);
+  const [modelOpen, setModelOpen] = useState(false);
   const [customtheme, setCustomTheme] = useState<any>(
     [
       { value: 0, label: "Green " },
@@ -36,6 +41,16 @@ const Settings_Screen = () => {
     { value: 3, label: "Deepseek" },
 
   ])
+
+  const handleSyntaxOpen = () => {
+    setSyntaxOpen(true);
+    setModelOpen(false);
+  };
+
+  const handleModelOpen = () => {
+    setModelOpen(true);
+    setSyntaxOpen(false);
+  };
 
   return (
     <KeyboardAwareScrollView
@@ -156,27 +171,33 @@ const Settings_Screen = () => {
 
 
             {/* Right */}
-            <View style={styles.colorThemeContainerRight}>
+            <View style={[styles.colorThemeContainerRight, styles.dropdownWrapper, { zIndex: 10001, elevation: 10001 }]}>
               <View style={styles.themeContainer}>
                 <DropDownPicker
                   containerStyle={{
                     width: "100%",
+                    zIndex: 10001,
+                    elevation: 10001,
                   }}
                   listMode="SCROLLVIEW"
                   style={styles.showSnippetsDropdown}
-                  // searchable={true}
                   theme="DARK"
-                  open={open}
+                  open={syntaxOpen}
                   value={value}
                   items={customtheme}
                   setItems={setCustomTheme}
-                  setOpen={setOpen}
+                  setOpen={setSyntaxOpen}
                   setValue={setValue}
+                  onOpen={handleSyntaxOpen}
+                  onClose={() => setSyntaxOpen(false)}
                   showArrowIcon={true}
-                  placeholder={'Choose'}
+                  placeholder={'Gemini'}
+                  dropDownDirection="BOTTOM"
                   dropDownContainerStyle={{
                     backgroundColor: DevColors.surfaceVariant,
                     borderColor: DevColors.outlineVariant,
+                    zIndex: 10001,
+                    elevation: 10001,
                   }}
                   labelStyle={{
                     color: DevColors.onSurface,
@@ -213,27 +234,33 @@ const Settings_Screen = () => {
             </View>
 
             {/* Right */}
-            <View style={styles.colorThemeContainerRight}>
+            <View style={[styles.colorThemeContainerRight, styles.dropdownWrapper, { zIndex: 10000, elevation: 10000 }]}>
               <View style={styles.themeContainer}>
                 <DropDownPicker
                   containerStyle={{
                     width: "100%",
+                    zIndex: 10000,
+                    elevation: 10000,
                   }}
                   listMode="SCROLLVIEW"
                   style={styles.showSnippetsDropdown}
-                  // searchable={true}
                   theme="DARK"
-                  open={openmodel}
+                  open={modelOpen}
                   value={valuemodel}
                   items={aimodel}
                   setItems={setAimodel}
-                  setOpen={setOpenmodel}
+                  setOpen={setModelOpen}
                   setValue={setValuemodel}
+                  onOpen={handleModelOpen}
+                  onClose={() => setModelOpen(false)}
                   showArrowIcon={true}
                   placeholder={'Choose'}
+                  dropDownDirection="BOTTOM"
                   dropDownContainerStyle={{
                     backgroundColor: DevColors.surfaceVariant,
                     borderColor: DevColors.outlineVariant,
+                    zIndex: 10000,
+                    elevation: 10000,
                   }}
                   labelStyle={{
                     color: DevColors.onSurface,
@@ -245,47 +272,132 @@ const Settings_Screen = () => {
 
 
           {/* Bottom */}
-          <View style={styles.colorThemeContainerBottom}>
-            {/* Left */}
-            <View style={styles.colorThemeContainerLeft}>
-              <DevHeading>Syntax Highlighting</DevHeading>
-              <DevText style={styles.colorThemeSubtext}>Current: Monokai Pro Obsidian</DevText>
-            </View>
-
-
-            {/* Right */}
-            <View style={styles.colorThemeContainerRight}>
-              <View style={styles.themeContainer}>
-                <DropDownPicker
-                  containerStyle={{
-                    width: "100%",
-                  }}
-                  listMode="SCROLLVIEW"
-                  style={styles.showSnippetsDropdown}
-                  // searchable={true}
-                  theme="DARK"
-                  open={open}
-                  value={value}
-                  items={customtheme}
-                  setItems={setCustomTheme}
-                  setOpen={setOpen}
-                  setValue={setValue}
-                  showArrowIcon={true}
-                  placeholder={'Choose'}
-                  dropDownContainerStyle={{
-                    backgroundColor: DevColors.surfaceVariant,
-                    borderColor: DevColors.outlineVariant,
-                  }}
-                  labelStyle={{
-                    color: DevColors.onSurface,
-                  }}
-                />
-
-              </View>
-            </View>
+          <View style={styles.colorThemeContainerBottom1}>
+            <DevHeading>Auto-Documentation</DevHeading>
+            <DevText style={styles.colorThemeSubtext}>Automatically generate DocStrings on save</DevText>
           </View>
         </View>
       </View>
+
+
+
+      {/* Github Sync */}
+      <View style={styles.customizeDetailContainer}>
+        {/* Header */}
+        <View style={styles.customizeDetailHeader} >
+          <FontAwesome6 style={styles.customizeDetailHeaderIcon} name="cloud" />
+          <DevText>CLOUD SYNC</DevText>
+        </View>
+
+
+        {/* Integrartion */}
+        <View style={styles.cloudIntegrationMainContainer}>
+          <View style={styles.cloudIntegrationTopContainer}>
+            {/* Left */}
+            <View style={styles.cloudIntegrationLeft}>
+              <FontAwesome6 style={styles.cloudIntegrationLeftIcon} name="github" />
+            </View>
+
+            {/* Center */}
+            <View style={styles.cloudIntegrationCenter}>
+              <DevHeading>GitHub Integration</DevHeading>
+              <DevText style={styles.colorThemeSubtext}>info@ashishsharma.in</DevText>
+            </View>
+
+            {/* Right */}
+            <View style={styles.cloudIntegrationRight}>
+              <Pressable>
+                <DevText>Disconnect</DevText>
+              </Pressable>
+            </View>
+
+          </View>
+
+
+          {/* Bottom */}
+          <View style={styles.cloudIntegrationBottomContainer}>
+            {/* Storage show container*/}
+            <ProgressBar progress={0.1} />
+
+          </View>
+        </View>
+      </View>
+
+
+
+
+      {/* Quick Links */}
+      <View style={[styles.customizeDetailContainer,{marginBottom:"6%"}]}>
+
+
+        {/* Integrartion */}
+        <View style={styles.cloudIntegrationMainContainer}>
+          <View style={styles.cloudIntegrationTopContainer}>
+            {/* Left */}
+            <View style={styles.cloudIntegrationLeft}>
+              <FontAwesome6 style={styles.cloudIntegrationLeftIcon} name="file-lines" />
+            </View>
+
+            {/* Center */}
+            <View style={styles.cloudIntegrationCenter}>
+              <DevHeading>Privacy Policy</DevHeading>
+            </View>
+
+            {/* Right */}
+            <View style={styles.cloudQuickIntegrationRight}>
+              <Pressable>
+                <FontAwesome6 name="arrow-up-right-from-square" color={DevColors.inverseSurface} />
+              </Pressable>
+            </View>
+          </View>
+
+          <View style={styles.cloudIntegrationTopContainer}>
+            {/* Left */}
+            <View style={styles.cloudIntegrationLeft}>
+              <FontAwesome6 style={styles.cloudIntegrationLeftIcon} name="circle-info" />
+            </View>
+
+            {/* Center */}
+            <View style={styles.cloudIntegrationCenter}>
+              <DevHeading>About DevSnippet</DevHeading>
+            </View>
+
+            {/* Right */}
+            <View style={styles.cloudQuickIntegrationRight}>
+              <Pressable>
+                <DevText>{version}</DevText>
+              </Pressable>
+            </View>
+          </View>
+
+          <View style={styles.cloudIntegrationTopContainer}>
+            {/* Left */}
+            <View style={styles.cloudIntegrationLeft}>
+              <FontAwesome6 style={styles.cloudIntegrationLeftIcon} name="bug" />
+            </View>
+
+            {/* Center */}
+            <View style={styles.cloudIntegrationCenter}>
+              <DevHeading>Report an Issue</DevHeading>
+            </View>
+
+            {/* Right */}
+            <View style={styles.cloudQuickIntegrationRight}>
+              <Pressable>
+                <FontAwesome6 name="arrow-up-right-from-square" color={DevColors.inverseSurface} />
+              </Pressable>
+            </View>
+          </View>
+
+
+          {/* Watermark */}
+          <View style={styles.bottomWatermark}>
+            <FontAwesome6 style={styles.bottomWatermarkIcon} name="terminal" />
+            <DevText style={styles.bottomWatermarkText}>BUILD FAST. STORE SECURE. REPEAT.</DevText>
+          </View>
+        </View>
+      </View>
+
 
 
     </KeyboardAwareScrollView>
@@ -429,6 +541,9 @@ const styles = StyleSheet.create({
     width: "50%",
     // backgroundColor: "red",
   },
+  dropdownWrapper: {
+    position: 'relative',
+  },
   themeContainer: {
 
     flexDirection: "row",
@@ -476,7 +591,85 @@ const styles = StyleSheet.create({
     borderWidth: 2,
 
   },
+  colorThemeContainerBottom1: {
+    marginTop: "6%",
+    borderTopWidth: 1,
+    borderColor: DevColors.outline,
+    paddingTop: "3%",
+    flexDirection: "column",
+  },
+  progressBarContainer: {
+    width: '100%',
+    height: 10,
+    borderRadius: 999,
+    backgroundColor: DevColors.surfaceVariant,
+    overflow: 'hidden',
+  },
+  progressBarFill: {
+    height: '100%',
+    borderRadius: 999,
+    backgroundColor: DevColors.primaryContainer,
+  },
+  cloudIntegrationMainContainer: {
+    flexDirection: "column",
+  },
+  cloudIntegrationTopContainer: {
+    flexDirection: "row",
+    width: "100%",
+    // backgroundColor: "red",
+    paddingLeft: "1%",
+    alignItems: "center",
+    paddingTop:"3%",
+  },
+  cloudIntegrationLeft: {
+    width: "15%",
+    textAlign: "right",
 
-
+  },
+  cloudIntegrationLeftIcon: {
+    width: "80%",
+    padding: "18%",
+    margin: "6%",
+    fontSize: 21,
+    backgroundColor: DevColors.secondaryContainer + 20,
+    color: DevColors.primaryContainer,
+    textAlign: "center",
+    verticalAlign: "middle",
+    borderRadius: 9,
+  },
+  cloudIntegrationCenter: {
+    width: "50%",
+  },
+  cloudIntegrationRight: {
+    width: "35%",
+    paddingLeft: "6%",
+  },
+  cloudIntegrationBottomContainer: {
+    height: 30,
+    textAlign: "center",
+    padding: "3%",
+  },
+  cloudQuickIntegrationRight: {
+    width: "30%",
+    // backgroundColor: "blue",
+    alignItems: "flex-end",
+  },
+  bottomWatermark:{
+    flex:1,
+    // backgroundColor:"blue",
+    alignItems:"center",
+  },
+  bottomWatermarkIcon:{
+    marginTop:"9%",
+    marginBottom:"3%",
+    padding:"5%",
+    borderRadius:6,
+    backgroundColor:DevColors.primaryContainer,
+    color: DevColors.background,
+  },
+  bottomWatermarkText:{
+    marginTop:"3%",
+    marginBottom:"21%",
+  },
 })
 
