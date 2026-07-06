@@ -33,18 +33,18 @@ Welcome to the **React Native Learning Repository**! This collection contains st
 
 ### 📁 **Chaicode/** — Main Learning Curriculum
 
-#### 🔵 Day 01: React Refresher - Fundamentals
+#### 🔵 Week 01 - 00: React Refresher - Fundamentals
 Start here to refresh your React knowledge or learn from scratch.
 - Basic components and JSX
 - Props and component composition
 - Simple interactive examples
 
 ```bash
-cd Chaicode/"Day 01 react-refresher"
+cd Chaicode/"Week-01-React-Refresher 00"
 npm install && npm run dev
 ```
 
-#### 🟢 Day 02: React Refresher - Advanced
+#### 🟢 Week 01 - 01: React Refresher - Advanced
 Build advanced React skills with practical patterns.
 - State management with hooks
 - Form handling and validation
@@ -53,11 +53,11 @@ Build advanced React skills with practical patterns.
 - Dark mode and advanced patterns
 
 ```bash
-cd Chaicode/"Day 02 react-refresher"
+cd Chaicode/"Week-01-React-Refresher Continution 01"
 npm install && npm run dev
 ```
 
-#### 🟣 Day 03: React Native - Core Components
+#### 🟣 Week 02 - 00: React Native - Core Components
 Transition to mobile development with React Native and Expo.
 - Core mobile components (View, Text, Image, ScrollView)
 - Navigation with Expo Router
@@ -65,22 +65,22 @@ Transition to mobile development with React Native and Expo.
 - TypeScript for type safety
 
 ```bash
-cd Chaicode/"Day-03-React-Native-Init-Core-Components"
+cd Chaicode/"Week-02-React-Native-Init-Core-Components 00"
 npm install && npx expo start
 ```
 
-#### 🟡 Day 04: React Native - Core Components Continuation
+#### 🟡 Week 02 - 01: React Native - Core Components Continuation
 Deepen your understanding of React Native components.
 - Advanced component patterns
 - Styling and layout
 - Component lifecycle
 
 ```bash
-cd Chaicode/"Day-04-React-Native-Init-Core-Components-Continuation"
+cd Chaicode/"Week-02-React-Native-Init-Core-Components-Continuation 01"
 npm install && npx expo start
 ```
 
-#### 🟠 Day 05: React Navigation MasterClass
+#### 🟠 Week 03 - 00: React Navigation MasterClass
 Master navigation patterns in React Native.
 - Stack Navigator
 - Tab Navigator
@@ -88,11 +88,11 @@ Master navigation patterns in React Native.
 - Static & dynamic routing
 
 ```bash
-cd Chaicode/"Day-05-React-Navigation-MasterClass"
+cd Chaicode/"Week-03-React-Navigation-MasterClass 00"
 npm install && npx expo start
 ```
 
-#### 🔴 Day 06: Expo Router 101
+#### 🔴 Week 03 - 01: Expo Router 101
 File-based routing with Expo Router.
 - File-based navigation
 - Auth flows `(auth)/`
@@ -100,11 +100,11 @@ File-based routing with Expo Router.
 - Dynamic routes (user, profile, username)
 
 ```bash
-cd Chaicode/"Day-06-React-Expo-Router-101"
+cd Chaicode/"Week-03-React-Navigation-MasterClass-React-Expo-Router-101"
 npm install && npx expo start
 ```
 
-#### 🟤 Day 07: Networking & Backend Integration
+#### 🟤 Week 04 - 00: Networking & Backend Integration
 Connect your app to a real backend.
 - REST API integration
 - Express.js backend server
@@ -113,26 +113,26 @@ Connect your app to a real backend.
 
 ```bash
 # Start the backend
-cd Chaicode/"Day-07-Networking-Backend-Integration"/backend
+cd Chaicode/"Week-04-Networking-Backend-Integration 00"/backend
 npm install && node index.js
 
 # Start the mobile app
-cd Chaicode/"Day-07-Networking-Backend-Integration"
+cd Chaicode/"Week-04-Networking-Backend-Integration 00"
 npm install && npx expo start
 ```
 
-#### ⚫ Day 08: Data Storage & Offline Support
+#### ⚫ Week 04 - 01: Data Storage & Offline Support
 Persist data and support offline usage.
 - AsyncStorage
 - Local file system access
 - Offline-first patterns
 
 ```bash
-cd Chaicode/"Day-08-Data-Storage-Offline-Support"
+cd Chaicode/"Week-04-Data-Storage-Offline-Support 01"
 npm install && npx expo start
 ```
 
-#### 🌟 Day 09: Sensors & Motions
+#### 🌟 Week 05: Sensors & Motions
 Access native device sensors.
 - Accelerometer
 - Gyroscope
@@ -140,7 +140,7 @@ Access native device sensors.
 
 ```bash
 # Each sensor is its own Expo project:
-cd Chaicode/"Day-09-Sensors-and-Motions"/accelerometer
+cd Chaicode/"Week-05-Sensors-and-Motions"/accelerometer
 npm install && npx expo start
 ```
 
@@ -164,44 +164,44 @@ Three navigation practice apps:
 ```
 START HERE
     ↓
-[Day 01] React Basics
+[Week 01.0] React Basics
     • Components & JSX
     • Props & State
     ↓
-[Day 02] React Advanced
+[Week 01.1] React Advanced
     • Hooks (useState, useEffect)
     • Forms & Validation
     • API Calls
     ↓
-[Day 03] React Native Core
+[Week 02.0] React Native Core
     • Mobile Components
     • Expo Setup
     • TypeScript
     ↓
-[Day 04] Components Deep Dive
+[Week 02.1] Components Deep Dive
     • Advanced Layouts
     • Styling Patterns
     ↓
-[Day 05] Navigation
+[Week 03.0] Navigation
     • Stack / Tab / Drawer
     • React Navigation
     ↓
-[Day 06] Expo Router
+[Week 03.1] Expo Router
     • File-based Routing
     • Auth Flows
     • Dynamic Routes
     ↓
-[Day 07] Networking
+[Week 04.0] Networking
     • REST APIs
     • Express Backend
     • TypeScript Types
     ↓
-[Day 08] Data Storage
+[Week 04.1] Data Storage
     • AsyncStorage
     • File System
     • Offline Support
     ↓
-[Day 09] Sensors & Motions
+[Week 05.0] Sensors & Motions
     • Accelerometer
     • Gyroscope
     • Light Sensor
@@ -230,7 +230,7 @@ npm install -g expo-cli
 
 **Option 1: Begin with React (Recommended for beginners)**
 ```bash
-cd Chaicode/"Day 01 react-refresher"
+cd Chaicode/"Week-01-React-Refresher 00"
 npm install
 npm run dev
 # Open http://localhost:5173
@@ -238,14 +238,14 @@ npm run dev
 
 **Option 2: Jump to React Advanced**
 ```bash
-cd Chaicode/"Day 02 react-refresher"
+cd Chaicode/"Week-01-React-Refresher Continution 01"
 npm install
 npm run dev
 ```
 
 **Option 3: Go Mobile with React Native**
 ```bash
-cd Chaicode/"Day-03-React-Native-Init-Core-Components"
+cd Chaicode/"Week-02-React-Native-Init-Core-Components 00"
 npm install
 npx expo start
 # Scan QR code with Expo Go app
@@ -269,7 +269,7 @@ npx expo start
 
 ## 📚 Available Scripts
 
-### Web Projects (Day 01 & 02)
+### Web Projects (Week 01)
 ```bash
 npm run dev      # Start development server
 npm run build    # Build for production
@@ -277,7 +277,7 @@ npm run lint     # Check code quality
 npm run preview  # Preview production build
 ```
 
-### Mobile Project (Day 03)
+### Mobile Project (Week 02.0)
 ```bash
 npx expo start   # Start dev server
 npx expo build   # Build for iOS/Android
@@ -292,7 +292,7 @@ npx expo prebuild # Prebuild native code
 React-Native/
 ├── 📁 Chaicode/                                          # Main learning projects
 │   │
-│   ├── 📁 Day 01 react-refresher/                        # React Basics (Vite + JSX)
+│   ├── 📁 Week-01-React-Refresher 00/                        # React Basics (Vite + JSX)
 │   │   ├── src/
 │   │   │   ├── App.jsx
 │   │   │   ├── H1.jsx
@@ -301,13 +301,13 @@ React-Native/
 │   │   ├── index.html
 │   │   └── package.json
 │   │
-│   ├── 📁 Day 02 react-refresher/                        # React Advanced (Hooks, Forms, API)
+│   ├── 📁 Week-01-React-Refresher Continution 01/                        # React Advanced (Hooks, Forms, API)
 │   │   ├── src/
 │   │   ├── public/
 │   │   ├── Recat Refresher Notes.txt
 │   │   └── package.json
 │   │
-│   ├── 📁 Day-03-React-Native-Init-Core-Components/      # RN Core Components & Expo
+│   ├── 📁 Week-02-React-Native-Init-Core-Components 00/      # RN Core Components & Expo
 │   │   ├── src/
 │   │   │   └── app/
 │   │   │       ├── _layout.tsx
@@ -319,21 +319,21 @@ React-Native/
 │   │   ├── app.json
 │   │   └── package.json
 │   │
-│   ├── 📁 Day-04-React-Native-Init-Core-Components-Continuation/   # RN Components Cont.
+│   ├── 📁 Week-02-React-Native-Init-Core-Components-Continuation 01/   # RN Components Cont.
 │   │   ├── src/
 │   │   │   └── app/
 │   │   ├── assets/
 │   │   ├── app.json
 │   │   └── package.json
 │   │
-│   ├── 📁 Day-05-React-Navigation-MasterClass/           # React Navigation
+│   ├── 📁 Week-03-React-Navigation-MasterClass 00/           # React Navigation
 │   │   ├── src/
 │   │   │   └── screens/
 │   │   ├── StaticRouter.tsx
 │   │   ├── React-Navigation-MasterClass.txt
 │   │   └── package.json
 │   │
-│   ├── 📁 Day-06-React-Expo-Router-101/                  # Expo Router & File-based Routing
+│   ├── 📁 Week-03-React-Navigation-MasterClass-React-Expo-Router-101/                  # Expo Router & File-based Routing
 │   │   ├── src/
 │   │   │   ├── app/
 │   │   │   │   ├── _layout.tsx
@@ -353,7 +353,7 @@ React-Native/
 │   │   ├── app.json
 │   │   └── package.json
 │   │
-│   ├── 📁 Day-07-Networking-Backend-Integration/         # API & Backend Integration
+│   ├── 📁 Week-04-Networking-Backend-Integration 00/         # API & Backend Integration
 │   │   ├── src/
 │   │   │   ├── App.tsx
 │   │   │   ├── app/
@@ -371,7 +371,7 @@ React-Native/
 │   │   ├── app.json
 │   │   └── package.json
 │   │
-│   ├── 📁 Day-08-Data-Storage-Offline-Support/           # AsyncStorage & Offline
+│   ├── 📁 Week-04-Data-Storage-Offline-Support 01/           # AsyncStorage & Offline
 │   │   ├── src/
 │   │   │   └── app/
 │   │   ├── assets/
@@ -380,7 +380,7 @@ React-Native/
 │   │   ├── app.json
 │   │   └── package.json
 │   │
-│   └── 📁 Day-09-Sensors-and-Motions/                   # Device Sensors
+│   └── 📁 Week-05-Sensors-and-Motions/                   # Device Sensors
 │       ├── accelerometer/                                # Accelerometer project
 │       │   ├── src/
 │       │   ├── assets/
@@ -423,7 +423,7 @@ React-Native/
 
 ## 💡 Learning Tips
 
-✅ **Follow the sequence** - Complete each day in order
+✅ **Follow the sequence** - Complete each week/part in order
 ✅ **Code along** - Don't just read, type out the code
 ✅ **Modify examples** - Change props, add features
 ✅ **Read assignments** - Each day has challenges
@@ -435,18 +435,18 @@ React-Native/
 
 ## 🎯 Learning Objectives
 
-### After Day 01
+### After Week 01.0
 - ✅ Understand React components and JSX
 - ✅ Use props for component communication
 - ✅ Create simple interactive components
 
-### After Day 02
+### After Week 01.1
 - ✅ Master React hooks (useState, useEffect)
 - ✅ Handle forms and user input
 - ✅ Fetch and display API data
 - ✅ Manage component state effectively
 
-### After Day 03
+### After Week 02.0
 - ✅ Build mobile apps with React Native
 - ✅ Use native mobile components
 - ✅ Implement navigation patterns
@@ -510,13 +510,13 @@ Pick a starting point and begin your journey:
 
 ```bash
 # Beginner? Start here
-cd Chaicode/"Day 01 react-refresher" && npm install && npm run dev
+cd Chaicode/"Week-01-React-Refresher 00" && npm install && npm run dev
 
 # Intermediate? Jump here
-cd Chaicode/"Day 02 react-refresher" && npm install && npm run dev
+cd Chaicode/"Week-01-React-Refresher Continution 01" && npm install && npm run dev
 
 # Ready for mobile? Go here
-cd Chaicode/"Day-03-React-Native-Init-Core-Components" && npm install && npx expo start
+cd Chaicode/"Week-02-React-Native-Init-Core-Components 00" && npm install && npx expo start
 ```
 
 ---
