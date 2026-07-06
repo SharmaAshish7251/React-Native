@@ -1,0 +1,20 @@
+####
+
+Expo
+a library that provides access to a device's accelerometer,
+barometer, motion, gyroscope, light, magnentometer and pedometer. 
+
+
+5. Magnentometer
+6. Pedometer
+7. Device motion
+
+
+
+What is a magnetrometer?
+A magnetometer is a sensor that detectes magnetic fields around the device.
+
+
+uses
+--- compass app
+--- navigation (map)
