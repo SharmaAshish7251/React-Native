@@ -1,6 +1,6 @@
 import { Redirect } from "expo-router";
 
 export default function Index() {
-  return <Redirect href="/screen/Settings_Screen" />;
+  return <Redirect href="/screen/Home_Screen" />;
 }
 

@@ -422,7 +422,7 @@ const styles = StyleSheet.create({
   topTitle: {
     flex: 1,
     fontSize: 24,
-    marginLeft: "-8%",
+    marginLeft: -25,
   },
 
   topTitleSub: {

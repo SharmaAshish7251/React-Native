@@ -1,14 +1,12 @@
-import { FontAwesome6 } from '@expo/vector-icons';
-import React, { useCallback, useState } from 'react';
-import { Pressable, StyleSheet, TextInput, View } from 'react-native';
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import DevColors from '../utils/DevColors';
-import DevSnippets from '../utils/DevSnippets';
-import DevText from '../utils/DevText';
-import DevHeading from '../utils/DevTitle';
+import { FontAwesome6 } from "@expo/vector-icons";
 import * as Application from "expo-application";
-
-
+import React, { useCallback, useState } from "react";
+import { Pressable, StyleSheet, TextInput, View } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import DevColors from "../utils/DevColors";
+import DevSnippets from "../utils/DevSnippets";
+import DevText from "../utils/DevText";
+import DevHeading from "../utils/DevTitle";
 
 const Snippet_Details_Screen = () => {
   const version = Application.nativeApplicationVersion;
@@ -20,35 +18,31 @@ const Snippet_Details_Screen = () => {
   console.log(lineCount);
   const lineNumbers = Array.from(
     { length: code === "" ? 1 : code.split("\n").length },
-    (_, i) => i + 1
+    (_, i) => i + 1,
   );
 
   // set to store unique values
   const [items, setItems] = useState(
     DevSnippets.filter(
       (item, index, self) =>
-        index === self.findIndex(i => i.category === item.category)
-    ).map(item => ({
+        index === self.findIndex((i) => i.category === item.category),
+    ).map((item) => ({
       label: item.category,
       value: item.category,
       icon: () => (
-        <FontAwesome6
-          name={item.icon}
-          color={item.iconColor}
-          size={18}
-        />
+        <FontAwesome6 name={item.icon} color={item.iconColor} size={18} />
       ),
-    }))
+    })),
   );
-
 
   // set to store unique values
   const [tags, setTags] = useState(
-    [...new Set(DevSnippets.flatMap(item => item.tags))]
-      .map((tag, index) => ({
+    [...new Set(DevSnippets.flatMap((item) => item.tags))].map(
+      (tag, index) => ({
         id: index + 1,
         value: tag,
-      }))
+      }),
+    ),
   );
 
   return (
@@ -65,10 +59,13 @@ const Snippet_Details_Screen = () => {
           <DevText style={styles.topVersion}>{version}</DevText>
         </View>
 
-        <DevHeading style={styles.topTitle}>DeepPartial(T) Recursive
-          Mapping</DevHeading>
-        <DevText numberOfLines={6} style={styles.topTitleSub}>A specialized utility type for recursively making
-          all properties of an object optional, including nested objects and arrays.</DevText>
+        <DevHeading style={styles.topTitle}>
+          DeepPartial(T) Recursive Mapping
+        </DevHeading>
+        <DevText numberOfLines={6} style={styles.topTitleSub}>
+          A specialized utility type for recursively making all properties of an
+          object optional, including nested objects and arrays.
+        </DevText>
 
         {/* Quick Button */}
         <View style={styles.topQuickMainContainer}>
@@ -90,34 +87,51 @@ const Snippet_Details_Screen = () => {
       </View>
 
       <View style={styles.snippetMainContainer}>
-
         {/* Top Quick Info */}
         <View style={styles.snippetContainerHead}>
           <View style={styles.snippetContainerHeadLeft}>
-            <FontAwesome6 style={styles.snippetBottomButtonLeftIcon0} name="circle-notch" />
-            <FontAwesome6 style={styles.snippetBottomButtonLeftIcon1} name="circle-notch" />
-            <FontAwesome6 style={styles.snippetBottomButtonLeftIcon2} name="circle-notch" />
+            <FontAwesome6
+              style={styles.snippetBottomButtonLeftIcon0}
+              name="circle-notch"
+            />
+            <FontAwesome6
+              style={styles.snippetBottomButtonLeftIcon1}
+              name="circle-notch"
+            />
+            <FontAwesome6
+              style={styles.snippetBottomButtonLeftIcon2}
+              name="circle-notch"
+            />
           </View>
           <View style={styles.snippetContainerCenter}>
-            <DevText style={styles.snippetContainerCenterText} numberOfLines={1}>index.ts - main</DevText>
+            <DevText
+              style={styles.snippetContainerCenterText}
+              numberOfLines={1}
+            >
+              index.ts - main
+            </DevText>
           </View>
           <View style={styles.snippetContainerHeadRight}>
-            <FontAwesome6 style={styles.snippetContainerHeadRightIcon} name="clipboard" />
-            <FontAwesome6 style={styles.snippetContainerHeadRightIcon} name="expand" />
+            <FontAwesome6
+              style={styles.snippetContainerHeadRightIcon}
+              name="clipboard"
+            />
+            <FontAwesome6
+              style={styles.snippetContainerHeadRightIcon}
+              name="expand"
+            />
           </View>
         </View>
 
         {/* center */}
 
-
         <View style={styles.snippetMainContainerCode}>
           <View style={styles.snippetMainContainerCodeLeft}>
-            {lineNumbers.map(line => (
+            {lineNumbers.map((line) => (
               <DevText key={line} style={styles.lineNumber}>
                 {line}
               </DevText>
             ))}
-
           </View>
           <View style={styles.snippetMainContainerCodeRight}>
             <TextInput
@@ -140,41 +154,55 @@ const Snippet_Details_Screen = () => {
         </View>
       </View>
 
-
       {/* Bottom */}
       <View style={styles.bottomTopContainerMain}>
         {/* top Bottom */}
         <View style={styles.bottomTopContainer}>
-          <FontAwesome6 style={styles.bottomTopContainerIcon} name="wand-magic-sparkles" />
-          <DevHeading style={[styles.topTitle, {
-            paddingBottom: "3%",
-          }]}>AI Explanation</DevHeading>
+          <FontAwesome6
+            style={styles.bottomTopContainerIcon}
+            name="wand-magic-sparkles"
+          />
+          <DevHeading
+            style={[
+              styles.topTitle,
+              {
+                paddingBottom: "3%",
+              },
+            ]}
+          >
+            AI Explanation
+          </DevHeading>
         </View>
 
         {/* Suggestion */}
         <View style={styles.suggestionMainContainer}>
-          <DevText>This utility leverages TypeScript's conditional types and mapped types to
-            traverse deep data structures. It checks if each property is an object or an array;
-            if it is, the utility recursively calls itself on that property's type. Best used
-            for: State management interfaces, consguration overrides, and partial database updates.
+          <DevText>
+            This utility leverages TypeScript's conditional types and mapped
+            types to traverse deep data structures. It checks if each property
+            is an object or an array; if it is, the utility recursively calls
+            itself on that property's type. Best used for: State management
+            interfaces, consguration overrides, and partial database updates.
           </DevText>
 
           {/* Extra Note */}
           <View style={styles.suggestionExtraNoteMain}>
             {/* Icon with info */}
             <View style={styles.suggestionExtraNote}>
-              <FontAwesome6 style={styles.suggestionExtraNoteIcon} name="circle-info" />
-              <DevText style={styles.suggestionExtraNoteText}>COMPLEXITY NOTE</DevText>
-
+              <FontAwesome6
+                style={styles.suggestionExtraNoteIcon}
+                name="circle-info"
+              />
+              <DevText style={styles.suggestionExtraNoteText}>
+                COMPLEXITY NOTE
+              </DevText>
             </View>
 
-            <DevText>Circular references in types may cause
-              recursion depth errors. Ensure target
-              interfaces are acyclic before applying
-              DeepPartial.</DevText>
+            <DevText>
+              Circular references in types may cause recursion depth errors.
+              Ensure target interfaces are acyclic before applying DeepPartial.
+            </DevText>
           </View>
         </View>
-
 
         {/* Tags Button */}
         <View style={styles.bottomLowMainContainer}>
@@ -191,17 +219,13 @@ const Snippet_Details_Screen = () => {
           </Pressable>
 
           <Pressable style={styles.bottomLowTags3}>
-            <DevText style={styles.bottomLowTagsText3} ># NESTEDTYPES</DevText>
+            <DevText style={styles.bottomLowTagsText3}># NESTEDTYPES</DevText>
           </Pressable>
         </View>
-
       </View>
-
-
     </KeyboardAwareScrollView>
-  )
-}
-
+  );
+};
 
 export default Snippet_Details_Screen;
 
@@ -216,7 +240,6 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: "3%",
     padding: "3%",
-
   },
   topTitle: {
     fontSize: 21,
@@ -225,7 +248,7 @@ const styles = StyleSheet.create({
   },
   topTitleIconContainer: {
     marginTop: 6,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   topCategory: {
     fontSize: 16,
@@ -264,20 +287,19 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: DevColors.onSurface,
     borderWidth: 1,
-    verticalAlign: 'bottom',
+    verticalAlign: "bottom",
   },
   topQuickButtonIcon: {
     color: DevColors.onSurface,
     paddingRight: 12,
-    verticalAlign: 'middle',
+    verticalAlign: "middle",
   },
   topQuickButtonText: {
     fontSize: 14,
     color: DevColors.onSurface,
-    verticalAlign: 'middle',
+    verticalAlign: "middle",
     fontWeight: 500,
   },
-
 
   topQuickButtonContainer0: {
     flexDirection: "row",
@@ -286,24 +308,22 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: DevColors.errorContainer,
     borderWidth: 1,
-    verticalAlign: 'bottom',
+    verticalAlign: "bottom",
   },
   topQuickButtonIcon0: {
     color: DevColors.error,
     paddingRight: 12,
-    verticalAlign: 'middle',
+    verticalAlign: "middle",
   },
   topQuickButtonText0: {
     fontSize: 14,
     color: DevColors.error,
-    verticalAlign: 'middle',
+    verticalAlign: "middle",
     fontWeight: 500,
   },
 
-
-
   snippetMainContainer: {
-    flexDirection: 'column',
+    flexDirection: "column",
     backgroundColor: DevColors.surfaceContainerLow,
     borderWidth: 1,
     borderColor: DevColors.outlineVariant,
@@ -316,7 +336,7 @@ const styles = StyleSheet.create({
     backgroundColor: DevColors.surfaceContainerLow,
     borderRadius: 6,
     width: "100%",
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   snippetBottomContainerMain: {
     flexDirection: "row",
@@ -353,7 +373,7 @@ const styles = StyleSheet.create({
   snippetMainContainertags: {
     flexDirection: "row",
     width: "100%",
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   codeInput: {
     flex: 1,
@@ -373,7 +393,7 @@ const styles = StyleSheet.create({
     // overflow:"hidden",
   },
   snippetContainerHeadLeft: {
-    flexDirection: 'row',
+    flexDirection: "row",
     width: "20%",
     gap: 6,
     padding: "3%",
@@ -393,14 +413,13 @@ const styles = StyleSheet.create({
   snippetContainerCenter: {
     width: "60%",
     padding: "3%",
-
   },
   snippetContainerCenterText: {
     textAlign: "center",
   },
   snippetContainerHeadRight: {
     // backgroundColor: DevColors.surfaceContainerHigh,
-    flexDirection: 'row',
+    flexDirection: "row",
     justifyContent: "space-between",
     width: "20%",
     padding: "3%",
@@ -412,7 +431,7 @@ const styles = StyleSheet.create({
   },
   snippetMainContainerCode: {
     flexDirection: "row",
-    overflow: 'hidden',
+    overflow: "hidden",
     flex: 1,
     textAlignVertical: "top",
   },
@@ -438,11 +457,11 @@ const styles = StyleSheet.create({
     marginTop: "6%",
     padding: "3%",
     borderRadius: 6,
+    marginBottom: "6%",
   },
   bottomTopContainer: {
     flexDirection: "row",
     alignItems: "center",
-
   },
   bottomTopContainerIcon: {
     backgroundColor: DevColors.primaryContainer + 10,
@@ -454,7 +473,7 @@ const styles = StyleSheet.create({
     // backgroundColor:"red",
   },
   suggestionExtraNoteMain: {
-    flexDirection: 'column',
+    flexDirection: "column",
     backgroundColor: DevColors.surfaceContainerHigh,
     padding: "3%",
     marginTop: "3%",
@@ -474,9 +493,9 @@ const styles = StyleSheet.create({
   bottomLowMainContainer: {
     marginTop: "3%",
     flexDirection: "row",
-    flexWrap:"wrap",
-    gap:"3%",
-    marginBottom:"3%",
+    flexWrap: "wrap",
+    gap: "3%",
+    marginBottom: "3%",
   },
   bottomLowTags0: {
     flexDirection: "row",
@@ -501,7 +520,7 @@ const styles = StyleSheet.create({
     color: DevColors.onTertiaryContainer,
   },
   bottomLowTags2: {
-    marginVertical:3,
+    marginVertical: 3,
     flexDirection: "row",
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -513,7 +532,7 @@ const styles = StyleSheet.create({
     color: DevColors.primaryContainer,
   },
   bottomLowTags3: {
-    marginVertical:3,
+    marginVertical: 3,
     flexDirection: "row",
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -524,8 +543,4 @@ const styles = StyleSheet.create({
   bottomLowTagsText3: {
     color: DevColors.secondaryFixedDim,
   },
-
-  
-
-})
-
+});

@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginTop: "2%",
     padding: "3%",
+    marginBottom: "6%",
   },
   snippetContainer: {
     backgroundColor: DevColors.surfaceContainerLow,

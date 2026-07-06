@@ -384,6 +384,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginLeft: "3%",
     marginRight: "3%",
+    marginBottom: "6%",
   },
 
 
