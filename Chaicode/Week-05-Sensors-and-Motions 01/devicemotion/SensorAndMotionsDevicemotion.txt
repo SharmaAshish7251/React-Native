@@ -1,0 +1,34 @@
+####
+
+Expo
+a library that provides access to a device's accelerometer,
+barometer, motion, gyroscope, light, magnentometer and pedometer. 
+
+
+5. Magnentometer
+6. Pedometer
+7. Device motion
+
+
+
+What is a Device  motion?
+is a high level sensor API provided by EXPO that combines data from multiple sensors
+and give you complete motion information about the device.
+
+
+Acceleration + Gynroscope+ magnetometer ------> Device motion
+
+
+acceleration, ---- actual movement(Gravity removed) --- Gesture Detection
+accelerationIncludingGravity, ---- movement + gravity(Tilt Detection, Orientation)
+rotation,  --- alpha, beta , gama
+rotationRate, --- alpha, beta , gama
+orientation,  ----current screen orientation (0 Portrait, 90 Landscape, 180 upside down, -90 landscape left)
+intervals
+
+
+
+
+
+assignment 
+Redis Stream
