@@ -1,12 +1,14 @@
 import { Text, View, StyleSheet } from "react-native";
 import CameraScreen from "./camera";
 import VideoScreen from "./video";
+import BarcodeScanner from "./barcodeScanner";
 
 export default function Index() {
   return (
     <View style={styles.container}>
       {/* <CameraScreen /> */}
-      <VideoScreen />
+      {/* <VideoScreen /> */}
+      <BarcodeScanner />
     </View>
   );
 }
