@@ -26,7 +26,6 @@ const BarcodeScanner = () => {
     );
   }
 
-
   const onBarcodeScanned = (scan: BarcodeScanningResult) => {
     // if last scanned data equals to current data return
     if (lastscanned.current === scan.data) return;
@@ -41,9 +40,25 @@ const BarcodeScanner = () => {
         ref={cameraRef}
         style={{ flex: 1 }}
         facing="back"
-        barcodeScannerSettings={{ barcodeTypes: ["upc_a", "aztec", "qr"] }}
+        barcodeScannerSettings={{
+          barcodeTypes: [
+            "upc_a",
+            "aztec",
+            "qr",
+            "aztec",
+            "codabar",
+            "code128",
+            "code39",
+            "code93",
+            "datamatrix",
+            "ean13",
+            "ean8",
+            "itf14",
+            "pdf417",
+            "upc_e",
+          ],
+        }}
         onBarcodeScanned={onBarcodeScanned}
-      
         onMountError={({ message }) => console.warn(message)}
       />
       {result && (
