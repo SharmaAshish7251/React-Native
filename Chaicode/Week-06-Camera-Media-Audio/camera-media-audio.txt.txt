@@ -1,0 +1,45 @@
+
+
+expo camera
+exposes the device camera through a React Native component called
+CameraView
+--> it wraps native camera APIs on iOS and Andriod (and limited web support) so you can :
+ -- Show a live camera preview in your app
+ -- Take photos and record videos
+ -- Scan barcodes (QR, EAN,Code 128 etc)  
+
+1. Camera Preview --- live video feed renders on react tree (native camera session).
+   its not a static image its a native camera session bound to a view
+2. Camera Session --- the native  resource that owns camera hardware. starting a preview
+   opens a session, unmounting CameraView should close it.
+
+Facing (Camera Type)
+  -- back - rear camera default
+  -- front - selfie camera
+
+Mode (Camera Mode)
+  -- picture  - still photo capture
+  -- video   --- movie recording
+
+
+Flash (Flash Mode)
+Burst of light at the moment a photo is taken : 0ff  | on | auto
+
+Torch 
+LED Kept on continuously during preview, Controlled with enableTorch. Separate from flash
+
+
+Zoom
+Normalized number 0 to 1 (0= widest, 1=max zoom on device). not the same as 
+"2x optical zoom".
+
+Capture URI
+local file path(or base64 on web) written  on app cache. Copy to permanent storage
+if user need file long-term.
+
+
+Barcode Scanning
+Enabled with barcodeScannerSettings + onBarcodeScanned. The callback may fire 
+repeatedly while a code stays in frame -- dedupe in your app.
+
+
