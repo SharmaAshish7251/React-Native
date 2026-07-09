@@ -25,7 +25,6 @@
         "android.permission.WRITE_EXTERNAL_STORAGE"
       ]
     },
-
     "web": {
       "output": "static",
       "favicon": "./assets/images/favicon.png"
@@ -42,8 +41,6 @@
           }
         }
       ],
-
-      // ios permissions
       [
         "expo-camera",
         {
@@ -59,9 +56,13 @@
           "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
           "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
           "isAccessMediaLocationEnabled": true,
-          "granularPermissions": ["audio", "photo"]
+          "granularPermissions": [
+            "audio",
+            "photo"
+          ]
         }
-      ]
+      ],
+      "expo-video"
     ],
     "experiments": {
       "typedRoutes": true,
