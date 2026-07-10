@@ -3,6 +3,7 @@ import CameraScreen from "./camera";
 import VideoScreen from "./video";
 import BarcodeScanner from "./barcodeScanner";
 import TorchScreen from "./torch";
+import ZoomEffect from "./zoomEffect";
 
 export default function Index() {
   return (
@@ -10,7 +11,8 @@ export default function Index() {
       {/* <CameraScreen /> */}
       {/* <VideoScreen /> */}
       {/* <BarcodeScanner /> */}
-      <TorchScreen />
+      {/* <TorchScreen /> */}
+      <ZoomEffect />
     </View>
   );
 }
