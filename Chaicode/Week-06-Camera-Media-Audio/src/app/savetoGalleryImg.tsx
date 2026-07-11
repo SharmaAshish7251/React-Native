@@ -2,9 +2,18 @@ import React from "react";
 import * as MediaLibrary from "expo-media-library";
 import { useRef, useState } from "react";
 import { CameraView, useCameraPermissions } from "expo-camera";
-import { ActivityIndicator,Alert,Button,Linking,Text,View,StyleSheet,} from "react-native";
+import {
+  ActivityIndicator,
+  Alert,
+  Button,
+  Linking,
+  Text,
+  View,
+  StyleSheet,
+  Image,
+} from "react-native";
 
-async function savetoGallery(uri: string) {
+async function SaveToGallery(uri: string) {
   // true request write permission (iOS)
   const { granted, canAskAgain } =
     await MediaLibrary.requestPermissionsAsync(true);
@@ -23,7 +32,7 @@ async function savetoGallery(uri: string) {
   throw new Error("Photo library permission denied");
 }
 
-const savetoGalleryImg = () => {
+const SaveToGalleryImg = () => {
   const cameraRef = useRef<CameraView>(null);
   const [camerpermission, requestCameraPermission] = useCameraPermissions();
   const [ready, setReady] = useState(false);
@@ -87,9 +96,76 @@ const savetoGalleryImg = () => {
     }
   };
 
-  
+  const handleSaveToGallery = async () => {
+    if (!photoUri) return;
+    setSaving(true);
+    setStatus("Saving to gallery...");
+
+    try {
+      await SaveToGallery(photoUri);
+      setStatus("Photo saved to gallery");
+    } catch (error) {
+      if (
+        error instanceof Error &&
+        error.message! == "Photo library permission denied"
+      ) {
+        Alert.alert("Save failed", error.message);
+      }
+      setStatus("Could not save to gallery.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <View style={{ flex: 1,width:"100%" }}>
+      {/* Live preview --- only while no photo is selected */}
+      {!photoUri && (
+        <CameraView
+          ref={cameraRef}
+          style={{ flex: 1, width:"100%" }}
+          facing="back"
+          mode="picture"
+          onCameraReady={() => setReady(true)}
+          onMountError={({ message }) => setStatus(message)}
+        />
+      )}
+
+      {/* Captured Photo Preview */}
+      {photoUri && (
+        <Image
+          source={{ uri: photoUri }}
+          style={{ flex: 1 }}
+          resizeMode="cover"
+        />
+      )}
+
+      {/* Controls */}
+      <View style={{ padding: 16, gap: 8 }}>
+        {!photoUri ? (
+          <Button title="Take Photo" onPress={takePhoto} disabled={!ready} />
+        ) : (
+          <>
+            <Button
+              title={saving ? "Saving...." : "Save to gallery"}
+              onPress={handleSaveToGallery}
+              disabled={saving}
+            />
+            <Button
+              title="Retake"
+              onPress={() => {
+                setPhotoUri(null);
+                setStatus(null);
+                setReady(false);
+              }}
+            />
+          </>
+        )}
+      </View>
+    </View>
+  );
 };
 
-export default savetoGalleryImg;
+export default SaveToGalleryImg;
 
 const styles = StyleSheet.create({});
