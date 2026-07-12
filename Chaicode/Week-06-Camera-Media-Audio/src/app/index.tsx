@@ -6,6 +6,7 @@ import TorchScreen from "./torch";
 import ZoomEffect from "./zoomEffect";
 import SaveToGalleryImg from "./savetoGalleryImg";
 import AudioScreen from "./Audio";
+import RecordingScreen from "./Recording";
 
 export default function Index() {
   return (
@@ -16,7 +17,8 @@ export default function Index() {
       {/* <TorchScreen /> */}
       {/* <ZoomEffect /> */}
       {/* <SaveToGalleryImg /> */}
-      <AudioScreen />
+      {/* <AudioScreen /> */}
+      <RecordingScreen />
     </View>
   );
 }
