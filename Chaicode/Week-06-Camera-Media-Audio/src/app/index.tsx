@@ -5,6 +5,7 @@ import BarcodeScanner from "./barcodeScanner";
 import TorchScreen from "./torch";
 import ZoomEffect from "./zoomEffect";
 import SaveToGalleryImg from "./savetoGalleryImg";
+import AudioScreen from "./Audio";
 
 export default function Index() {
   return (
@@ -14,7 +15,8 @@ export default function Index() {
       {/* <BarcodeScanner /> */}
       {/* <TorchScreen /> */}
       {/* <ZoomEffect /> */}
-      <SaveToGalleryImg />
+      {/* <SaveToGalleryImg /> */}
+      <AudioScreen />
     </View>
   );
 }

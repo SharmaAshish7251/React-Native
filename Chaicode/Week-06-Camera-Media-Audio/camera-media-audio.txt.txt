@@ -43,3 +43,24 @@ Enabled with barcodeScannerSettings + onBarcodeScanned. The callback may fire
 repeatedly while a code stays in frame -- dedupe in your app.
 
 
+
+
+/////////////////////////////////////////////
+
+
+
+Expo Audio
+first add permission
+expo audio is an expo sdk library for audio playback and microphone recording on Andriod ,ios
+and web. It exposes a hook based API:
+--- useAudioPlayer()  ---- play local files, bundled assets, or remote urls
+--- useAudioRecorder()   ----  record from  the device microphone
+
+When to use
+Play mp3, record audio
+Play existing audio --- expo-document-picker
+video playback --- expo-video
+
+Recording preset --- low and high
+
+
