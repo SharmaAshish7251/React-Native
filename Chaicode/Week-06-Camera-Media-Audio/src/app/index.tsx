@@ -7,6 +7,7 @@ import ZoomEffect from "./zoomEffect";
 import SaveToGalleryImg from "./savetoGalleryImg";
 import AudioScreen from "./Audio";
 import RecordingScreen from "./Recording";
+import RecordingAndPlayBack from "./RecordingAndPlayBack";
 
 export default function Index() {
   return (
@@ -18,7 +19,8 @@ export default function Index() {
       {/* <ZoomEffect /> */}
       {/* <SaveToGalleryImg /> */}
       {/* <AudioScreen /> */}
-      <RecordingScreen />
+      {/* <RecordingScreen /> */}
+      <RecordingAndPlayBack />
     </View>
   );
 }
